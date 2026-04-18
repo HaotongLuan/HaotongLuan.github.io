@@ -1,921 +1,590 @@
 <!DOCTYPE html>
-
 <html lang="en" data-theme="light">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Haotong Luan | 栾皓童</title>
-
   <style>
-
     :root {
-
       --bg:#eef4fb; --text:#222; --text-sub:#555; --text-muted:#888;
-
       --text-dim:#999; --link:#268bd2; --border:#ddd; --border-strong:#222;
-
       --topbar-border:#ccc; --photo-bg:#dce6f0; --photo-color:#aaa; --authors:#444;
-
     }
-
     [data-theme="dark"] {
-
       --bg:#1a1a2e; --text:#d8d8d8; --text-sub:#aaa; --text-muted:#777;
-
       --text-dim:#666; --link:#5dade2; --border:#333; --border-strong:#d8d8d8;
-
       --topbar-border:#444; --photo-bg:#2a2a3e; --photo-color:#555; --authors:#aaa;
-
     }
-
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-
     body {
-
       font-family:'Times New Roman',Times,'Noto Serif SC',serif;
-
       font-size:16px; line-height:1.75; color:var(--text); background:var(--bg);
-
       padding:48px 24px 60px; max-width:1100px; margin:0 auto;
-
       transition:background .3s, color .3s;
-
     }
-
     a { color:var(--link); text-decoration:none; }
-
     a:hover { text-decoration:underline; }
-
     strong { font-weight:bold; }
-
     /* language toggle */
-
     html[lang="en"] .cn { display:none !important; }
-
     html[lang="zh"] .en { display:none !important; }
-
     .topbar {
-
       display:flex; justify-content:space-between; align-items:center;
-
       margin-bottom:8px; flex-wrap:wrap; gap:6px;
-
     }
-
     .topbar-left a { color:var(--link); font-weight:bold; }
-
     .topbar-right { display:flex; gap:16px; align-items:center; }
-
     .topbar-right a { color:var(--link); }
-
     .tbtn {
-
       cursor:pointer; user-select:none; color:var(--link);
-
       background:none; border:none; font-family:inherit; font-size:inherit; padding:0;
-
     }
-
     .tbtn:hover { text-decoration:underline; }
-
     .topbar-divider { border:none; border-top:1.5px dashed var(--topbar-border); margin-bottom:36px; }
-
     .hero { display:flex; gap:28px; align-items:flex-start; margin-bottom:40px; flex-wrap:wrap; }
-
     .hero-photo-placeholder {
-
       width:150px; height:180px; border-radius:4px; background:var(--photo-bg);
-
       display:flex; align-items:center; justify-content:center;
-
       font-size:36px; color:var(--photo-color); flex-shrink:0;
-
     }
-
     .hero-info { flex:1; min-width:280px; }
-
     .hero-info h1 { font-size:32px; font-weight:bold; margin-bottom:2px; }
-
     .hero-info .underline { border:none; border-top:1.5px solid var(--border-strong); margin:4px 0 10px; }
-
     .hero-info .subtitle { color:var(--text-sub); margin-bottom:12px; }
-
     .hero-info p { margin-bottom:8px; }
-
     .hero-links { margin-top:10px; }
-
     .hero-links a { margin-right:10px; }
-
     .focus-line { color:var(--text-muted); margin-top:8px; font-size:14px; }
-
     section { margin-bottom:36px; }
-
     section h2 { font-size:20px; font-weight:bold; margin-bottom:4px; }
-
     section .sec-rule { border:none; border-top:1px solid var(--border); margin-bottom:16px; }
-
     section h3 { font-size:17px; font-weight:bold; margin:18px 0 4px; }
-
     .pub-item { margin-bottom:16px; }
-
     .pub-title { font-weight:bold; }
-
     .pub-authors { color:var(--authors); }
-
     .pub-venue { color:var(--link); font-style:italic; }
-
     .news-list { list-style:none; padding:0; }
-
     .news-list li { margin-bottom:6px; }
-
     .news-date { font-weight:bold; margin-right:6px; }
-
     .tags { color:var(--text-muted); font-size:14px; margin-top:2px; }
-
     .entry-meta { color:var(--text-muted); font-size:14px; margin-top:2px; }
-
     .service-list { list-style:disc; padding-left:20px; }
-
     .service-list li { margin-bottom:4px; }
-
     .awards-list { list-style:none; padding:0; }
-
     .awards-list li { display:flex; justify-content:space-between; margin-bottom:4px; }
-
     .award-year { color:var(--text-muted); white-space:nowrap; margin-left:12px; }
-
     .globe-section { text-align:center; margin:40px 0 20px; }
-
     footer { margin-top:48px; color:var(--text-dim); font-size:13px; text-align:center; }
-
     footer p { margin-bottom:2px; }
 
+    /* ===== LOGO ENTRY LAYOUT ===== */
+    .entry-row {
+      display:flex; align-items:flex-start; gap:16px; margin-top:18px;
+    }
+    .entry-row .entry-logos {
+      display:flex; flex-direction:column; gap:6px; flex-shrink:0; margin-top:2px;
+    }
+    .entry-row .entry-logos img {
+      width:52px; height:52px; object-fit:contain;
+    }
+    .entry-row .entry-content {
+      flex:1; min-width:0;
+    }
+    .entry-row .entry-content h3 {
+      margin-top:0;
+    }
   </style>
-
 </head>
-
 <body>
 
 <!-- ===== TOPBAR ===== -->
-
 <nav class="topbar">
-
   <div class="topbar-left">
-
     <a href="index.html" class="en">Haotong Luan</a><a href="index.html" class="cn">栾皓童</a>:~#
-
   </div>
-
   <div class="topbar-right">
-
     <a href="#publications" class="en">Publications/</a><a href="#publications" class="cn">论文/</a>
-
     <a href="https://scholar.google.com/citations?user=695sZWgAAAAJ&hl=en&authuser=1" target="_blank" class="en">Scholar/</a>
-
     <a href="https://scholar.google.com/citations?user=695sZWgAAAAJ&hl=en&authuser=1" target="_blank" class="cn">学术/</a>
-
     <button class="tbtn" onclick="toggleLang()" id="langBtn">EN | 中</button>
-
     <button class="tbtn" onclick="toggleTheme()" id="themeBtn">&#9790;</button>
-
   </div>
-
 </nav>
-
 <hr class="topbar-divider">
 
 <!-- ===== HERO EN ===== -->
-
 <div class="hero en">
-
   <div class="hero-photo-placeholder">HL</div>
-
   <div class="hero-info">
-
     <p style="color:var(--text-muted);margin-bottom:2px;">Hi!</p>
-
     <h1>Haotong Luan</h1>
-
     <hr class="underline">
-
     <p class="subtitle">Undergraduate researcher in robotics</p>
-
     <p>I am Haotong Luan (栾皓童), an undergraduate at the Future Technology School, <strong>Shenzhen Technology University</strong>, and a P-SRT student at <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank"><strong>Shenzhen X-Institute</strong></a>.</p>
-
-    <p>I work under the supervision of Prof. <a href="https://scholar.google.com/citations?user=n-3doEMAAAAJ&hl=zh-CN" target="_blank">Wenzeng Zhang</a> and am currently collaborating with Researcher <a href="https://www.shlab.org.cn/" target="_blank">Yuan Gao</a> (<a href="https://www.shlab.org.cn/" target="_blank">Shanghai AI Laboratory</a>) on visual-servoing control algorithms and end-effector design for robotic-arm grasping.</p>
-
+    <p>I work under the supervision of Prof. <a href="https://scholar.google.com/citations?user=n-3doEMAAAAJ&hl=zh-CN" target="_blank">Wenzeng Zhang</a> and am currently collaborating with Researcher <a href="高远简历.pdf" target="_blank">Yuan Gao</a> (<a href="https://www.shlab.org.cn/" target="_blank">Shanghai AI Laboratory</a>) on visual-servoing control algorithms and end-effector design for robotic-arm grasping.</p>
     <p>My work focuses on <strong>environment-adaptive robotic hands and mechanism design</strong>: linear-motion linkages, parallelogram mechanisms, underactuated and tendon-driven grippers, card-scooping hands, grasp-and-lift mechanisms, and idle-stroke transmissions.</p>
-
     <div class="hero-links">
-
       <a href=contact.html>Contact</a>
-
     </div>
-
     <p class="focus-line">&gt; focus: underactuated grippers / environment-adaptive grasping / mechanism design</p>
-
   </div>
-
 </div>
 
 <!-- ===== HERO CN ===== -->
-
 <div class="hero cn">
-
   <div class="hero-photo-placeholder">HL</div>
-
   <div class="hero-info">
-
     <p style="color:var(--text-muted);margin-bottom:2px;">你好！</p>
-
     <h1>栾皓童</h1>
-
     <hr class="underline">
-
     <p class="subtitle">机器人方向本科研究者</p>
-
     <p>我是栾皓童，<strong>深圳技术大学</strong>未来技术学院本科生，<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank"><strong>深圳 X-Institute</strong></a> P-SRT 学员。</p>
-
-    <p>师从 <a href="https://scholar.google.com/citations?user=n-3doEMAAAAJ&hl=zh-CN" target="_blank">张文增</a> 副教授，从事欠驱动机械手研究；目前与上海人工智能实验室 <a href="https://www.shlab.org.cn/" target="_blank">高远</a> 研究员合作，研究机械臂抓取中的视觉伺服控制算法与末端执行器设计。</p>
-
+    <p>师从 <a href="https://scholar.google.com/citations?user=n-3doEMAAAAJ&hl=zh-CN" target="_blank">张文增</a> 副教授，从事欠驱动机械手研究；目前与上海人工智能实验室 <a href="高远简历.pdf" target="_blank">高远</a> 研究员合作，研究机械臂抓取中的视觉伺服控制算法与末端执行器设计。</p>
     <p>研究方向：<strong>环境自适应机械手与机构设计</strong>，具体包括直线运动连杆、平行四边形机构、欠驱动与腱驱动夹爪、扒卡式手、抓取-提升机构、空行程传动等。</p>
-
     <div class="hero-links">
-
       <a href="mailto:lht20060306@outlook.com">联系我</a>
-
     </div>
-
     <p class="focus-line">&gt; 方向：欠驱动夹爪 / 环境自适应抓取 / 机构设计</p>
-
   </div>
-
 </div>
 
 <!-- ===== PUBLICATIONS EN ===== -->
-
 <section id="publications" class="en">
-
   <h2>Selected Publications</h2>
-
   <hr class="sec-rule">
-
   <div class="pub-item">
-
     <div class="pub-title">An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability</div>
-
     <div class="pub-authors"><strong>Haotong Luan</strong>, W. Zhang*, T. Yang*</div>
-
     <div class="pub-venue">RAAI 2025 (Online). <a href="https://ieeexplore.ieee.org/abstract/document/11423404" target="_blank">[doi]</a></div>
-
   </div>
-
   <div class="pub-item">
-
     <div class="pub-title">GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation</div>
-
     <div class="pub-authors">H. Ding, <strong>Haotong Luan</strong>, T. Yang*, W. Zhang*</div>
-
     <div class="pub-venue">ICCMA 2025 (Online). <a href="https://ieeexplore.ieee.org/abstract/document/11369602" target="_blank">[doi]</a></div>
-
   </div>
-
   <div class="pub-item">
-
     <div class="pub-title">An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping</div>
-
     <div class="pub-authors">Y. Chen, <strong>Haotong Luan</strong>, H. Ding, W. Zhang*</div>
-
     <div class="pub-venue">RAAI 2025 (Online). <a href="https://ieeexplore.ieee.org/abstract/document/11423397" target="_blank">[doi]</a></div>
-
   </div>
-
 </section>
 
 <!-- ===== PUBLICATIONS CN ===== -->
-
 <section class="cn">
-
   <h2>代表论文</h2>
-
   <hr class="sec-rule">
-
   <div class="pub-item">
-
     <div class="pub-title">An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability</div>
-
     <div class="pub-authors"><strong>栾皓童</strong>, 张文增*, 杨彤*</div>
-
     <div class="pub-venue">RAAI 2025（已线上发表）. <a href="https://ieeexplore.ieee.org/abstract/document/11423404" target="_blank">[doi]</a></div>
-
   </div>
-
   <div class="pub-item">
-
     <div class="pub-title">GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation</div>
-
     <div class="pub-authors">丁浩, <strong>栾皓童</strong>, 杨彤*, 张文增*</div>
-
     <div class="pub-venue">ICCMA 2025（已线上发表）. <a href="https://ieeexplore.ieee.org/abstract/document/11369602" target="_blank">[doi]</a></div>
-
   </div>
-
   <div class="pub-item">
-
     <div class="pub-title">An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping</div>
-
     <div class="pub-authors">陈禹, <strong>栾皓童</strong>, 丁浩, 张文增*</div>
-
     <div class="pub-venue">RAAI 2025（已线上发表）. <a href="https://ieeexplore.ieee.org/abstract/document/11423397" target="_blank">[doi]</a></div>
-
   </div>
-
 </section>
 
 <!-- ===== PREPRINTS EN ===== -->
-
 <section class="en">
-
   <h2>Preprints &amp; Patents</h2>
-
   <hr class="sec-rule">
-
   <h3>Papers Under Review</h3>
-
   <div class="pub-item">
-
     <div class="pub-title">A Robot Hand with Strong Environmental Adaptability for Grasping, Scooping, and Lifting Based on a Hybrid Parallelogram Mechanism Design</div>
-
     <div class="pub-authors"><strong>Haotong Luan</strong>, W. Zhang*</div>
-
     <div class="pub-venue">IEEE IROS 2026 (Under review, first author)</div>
-
   </div>
-
   <div class="pub-item">
-
     <div class="pub-title">SP Hand: An Underactuated Gripper with Mode Switching for Adaptive Pinching and Scooping</div>
-
     <div class="pub-authors"><strong>Haotong Luan</strong>, W. Zhang*</div>
-
     <div class="pub-venue">IEEE IROS 2026 (Under review, first author)</div>
-
   </div>
-
   <div class="pub-item">
-
     <div class="pub-title">PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts</div>
-
     <div class="pub-authors">(co-author), <strong>Haotong Luan</strong></div>
-
     <div class="pub-venue">IEEE IROS 2026 (Under review)</div>
-
   </div>
-
   <div class="pub-item">
-
     <div class="pub-title">Domain-Semantic Subspace Stacking for Financial Fraud Detection</div>
-
     <div class="pub-authors"><strong>Haotong Luan</strong>, M. Chen, Z. Lin, H. Ding, Y. Sheng*</div>
-
     <div class="pub-venue">Under review (first author)</div>
-
   </div>
-
   <h3>Patents Pending</h3>
-
   <ul class="service-list">
-
     <li><strong>3 invention patents</strong> (发明专利) filed and under review.</li>
-
     <li><strong>1 utility model patent</strong> (实用新型专利) filed and under review.</li>
-
   </ul>
-
 </section>
 
 <!-- ===== PREPRINTS CN ===== -->
-
 <section class="cn">
-
   <h2>预发表 &amp; 专利</h2>
-
   <hr class="sec-rule">
-
   <h3>在审论文</h3>
-
   <div class="pub-item">
-
     <div class="pub-title">A Robot Hand with Strong Environmental Adaptability for Grasping, Scooping, and Lifting Based on a Hybrid Parallelogram Mechanism Design</div>
-
     <div class="pub-authors"><strong>栾皓童</strong>, 张文增*</div>
-
     <div class="pub-venue">IEEE IROS 2026（在审，第一作者）</div>
-
   </div>
-
   <div class="pub-item">
-
     <div class="pub-title">SP Hand: An Underactuated Gripper with Mode Switching for Adaptive Pinching and Scooping</div>
-
     <div class="pub-authors"><strong>栾皓童</strong>, 张文增*</div>
-
     <div class="pub-venue">IEEE IROS 2026（在审，第一作者）</div>
-
   </div>
-
   <div class="pub-item">
-
     <div class="pub-title">PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts</div>
-
     <div class="pub-authors">（合作者）, <strong>栾皓童</strong></div>
-
     <div class="pub-venue">IEEE IROS 2026（在审）</div>
-
   </div>
-
   <div class="pub-item">
-
     <div class="pub-title">Domain-Semantic Subspace Stacking for Financial Fraud Detection</div>
-
     <div class="pub-authors"><strong>栾皓童</strong>, 陈敏敏, 林振辉, 丁浩凯, 盛益伟*</div>
-
     <div class="pub-venue">在审（第一作者）</div>
-
   </div>
-
   <h3>在申专利</h3>
-
   <ul class="service-list">
-
     <li><strong>3 项发明专利</strong>已申请，审查中。</li>
-
     <li><strong>1 项实用新型专利</strong>已申请，审查中。</li>
-
   </ul>
-
 </section>
 
 <!-- ===== NEWS EN ===== -->
-
 <section id="news" class="en">
-
   <h2>News</h2>
-
   <hr class="sec-rule">
-
   <ul class="news-list">
-
     <li><span class="news-date">2026.04</span> Three papers (two first-author) submitted to <strong>IEEE IROS 2026</strong> and currently under review.</li>
-
     <li><span class="news-date">2026.03</span> Served as a <strong>Reviewer</strong> for <strong>IEEE IROS 2026</strong>.</li>
-
     <li><span class="news-date">2026.01</span> Selected as the <strong>youngest of only 9 undergraduates</strong> (among 70+ participants) for the <strong>Quantum &amp; AI Winter School</strong> jointly held by Shenzhen International Quantum Academy and <a href="https://www.slai.edu.cn" target="_blank">Shenzhen Loop Area Institute</a>.</li>
-
     <li><span class="news-date">2025.11</span> Three papers (one first-author on the <strong>DS Hand</strong>) published online in <strong>RAAI 2025 / ICCMA 2025</strong>.</li>
-
     <li><span class="news-date">2025.09</span> Joined <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">Shenzhen X-Institute</a> as a <strong>P-SRT</strong> student, advised by Prof. Wenzeng Zhang.</li>
-
     <li><span class="news-date">2025.06</span> Awarded the <strong>Crystal Prize</strong> for Scientific Innovation (only 10 across the whole university).</li>
-
   </ul>
-
 </section>
 
 <!-- ===== NEWS CN ===== -->
-
 <section class="cn">
-
   <h2>动态</h2>
-
   <hr class="sec-rule">
-
   <ul class="news-list">
-
     <li><span class="news-date">2026.04</span> 共三篇论文（两篇一作）投稿至 <strong>IEEE IROS 2026</strong>，目前均在审。</li>
-
     <li><span class="news-date">2026.03</span> 担任 <strong>IEEE IROS 2026</strong> <strong>审稿人</strong>。</li>
-
     <li><span class="news-date">2026.01</span> 作为 70+ 参与者中仅有的 <strong>9 名本科生之一（且最年轻）</strong>，入选由深圳国际量子研究院与<a href="https://www.slai.edu.cn" target="_blank">深圳河套量子研究院</a>联合举办的<strong>量子 &amp; AI 冬令营</strong>。</li>
-
     <li><span class="news-date">2025.11</span> 三篇论文（其中 <strong>DS Hand</strong> 一篇一作）在 <strong>RAAI 2025 / ICCMA 2025</strong> 线上发表。</li>
-
     <li><span class="news-date">2025.09</span> 加入<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">深圳 X-Institute</a>，成为 <strong>P-SRT</strong> 学员，师从张文增教授。</li>
-
     <li><span class="news-date">2025.06</span> 荣获<strong>水晶奖学金</strong>（科技创新，全校仅 10 人）。</li>
-
   </ul>
-
 </section>
 
 <!-- ===== RESEARCH EN ===== -->
-
 <section class="en">
-
   <h2>Research</h2>
-
   <hr class="sec-rule">
-
   <h3>01 &middot; Underactuated Grippers</h3>
-
   <p>Linear-motion linkages, parallelogram mechanisms, and idle-stroke transmissions that embed grasping logic directly into the hardware, enabling reliable grasping with a single actuator.</p>
-
   <p class="tags">dual-parallelogram &middot; idle-stroke &middot; single-actuator</p>
-
   <h3>02 &middot; Environment-Adaptive Hands</h3>
-
   <p>Hands that exploit contact with tables or walls to switch modes automatically, from pinching to scooping to lifting, robust to pose error and collision during manipulator operation.</p>
-
   <p class="tags">card scooping &middot; mode switching &middot; contact-triggered</p>
-
   <h3>03 &middot; Mechanism Design</h3>
-
   <p>Peaucellier and semi-Peaucellier linkages, slot-guided mechanisms, and hybrid parallelogram designs aimed at precise linear fingertip motion and posture-preserving grasping.</p>
-
   <p class="tags">Peaucellier &middot; slot-guided &middot; linear linkage</p>
-
   <h3>04 &middot; Embodied Intelligence (Future)</h3>
-
   <p>Long-term interest in the intersection of mechanism design and embodied intelligence, coupling hardware-embedded logic with learning-based control for resource-constrained robotics.</p>
-
   <p class="tags">embodied AI &middot; hardware-software co-design</p>
-
 </section>
 
 <!-- ===== RESEARCH CN ===== -->
-
 <section class="cn">
-
   <h2>研究方向</h2>
-
   <hr class="sec-rule">
-
   <h3>01 &middot; 欠驱动夹爪</h3>
-
   <p>通过直线运动连杆、平行四边形机构、空行程传动等，将抓取逻辑直接嵌入硬件，实现单电机驱动下的可靠抓取。</p>
-
   <p class="tags">双平行四边形 &middot; 空行程 &middot; 单驱动</p>
-
   <h3>02 &middot; 环境自适应机械手</h3>
-
   <p>利用与桌面或墙面的接触自动切换模式，从捏取到扒取再到提升，对操作臂的位姿误差和碰撞具有很强鲁棒性。</p>
-
   <p class="tags">扒卡 &middot; 模式切换 &middot; 接触触发</p>
-
   <h3>03 &middot; 机构设计</h3>
-
   <p>Peaucellier 与半 Peaucellier 连杆、槽导式机构、混合平行四边形设计，用于指尖精确直线运动与保持姿态的抓取。</p>
-
   <p class="tags">Peaucellier &middot; 槽导 &middot; 直线连杆</p>
-
   <h3>04 &middot; 具身智能（未来方向）</h3>
-
   <p>长期关注机构设计与具身智能的交叉，将硬件嵌入式逻辑与基于学习的控制相结合，面向资源受限的机器人系统。</p>
-
   <p class="tags">具身 AI &middot; 软硬协同</p>
-
 </section>
 
 <!-- ===== EDUCATION EN ===== -->
-
 <section class="en">
-
   <h2>Education</h2>
-
   <hr class="sec-rule">
 
-  <h3>Shenzhen Technology University</h3>
+  <div class="entry-row">
+    <div class="entry-logos">
+      <img src="深技大.png" alt="SZTU">
+    </div>
+    <div class="entry-content">
+      <h3>Shenzhen Technology University</h3>
+      <p>B.Eng. in Automation, Future Technology School &middot; GPA 83.7/100</p>
+      <p>Key courses: Python programming, analog/digital electronics, IoT control, engineering graphics (SolidWorks), probability &amp; statistics, linear algebra, calculus.</p>
+      <p class="entry-meta">2024.09 &ndash; present</p>
+    </div>
+  </div>
 
-  <p>B.Eng. in Automation, Future Technology School &middot; GPA 83.7/100</p>
-
-  <p>Key courses: Python programming, analog/digital electronics, IoT control, engineering graphics (SolidWorks), probability &amp; statistics, linear algebra, calculus.</p>
-
-  <p class="entry-meta">2024.09 &ndash; present</p>
-
-  <h3><a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">Shenzhen X-Institute</a> &middot; P-SRT Program</h3>
-
-  <p>Research direction: robotic hand and gripper design. Advisor: Associate Prof. Wenzeng Zhang.</p>
-
-  <p>Track: X-idea &rarr; <strong>P-SRT (current)</strong> &rarr; E-SRT &rarr; ORIC &rarr; SURF. Founded under Shenzhen's educational reform initiative, inspired by Tsinghua's Tsien Excellence in Engineering Program.</p>
-
-  <p class="entry-meta">2025.09 &ndash; present</p>
+  <div class="entry-row">
+    <div class="entry-logos">
+      <img src="清华.png" alt="Tsinghua">
+      <img src="零一.png" alt="X-Institute">
+    </div>
+    <div class="entry-content">
+      <h3><a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">Shenzhen X-Institute</a> &middot; P-SRT Program</h3>
+      <p>Research direction: robotic hand and gripper design. Advisor: Associate Prof. Wenzeng Zhang.</p>
+      <p>Track: X-idea &rarr; <strong>P-SRT (current)</strong> &rarr; E-SRT &rarr; ORIC &rarr; SURF. Founded under Shenzhen's educational reform initiative, inspired by Tsinghua's Tsien Excellence in Engineering Program.</p>
+      <p class="entry-meta">2025.09 &ndash; present</p>
+    </div>
+  </div>
 
 </section>
 
 <!-- ===== EDUCATION CN ===== -->
-
 <section class="cn">
-
   <h2>教育经历</h2>
-
   <hr class="sec-rule">
 
-  <h3>深圳技术大学</h3>
+  <div class="entry-row">
+    <div class="entry-logos">
+      <img src="深技大.png" alt="深技大">
+    </div>
+    <div class="entry-content">
+      <h3>深圳技术大学</h3>
+      <p>自动化（工学学士），未来技术学院 &middot; GPA 83.7/100</p>
+      <p>主修课程：Python 程序设计、模拟/数字电子、物联网控制、工程制图（SolidWorks）、概率论与数理统计、线性代数、微积分。</p>
+      <p class="entry-meta">2024.09 &ndash; 至今</p>
+    </div>
+  </div>
 
-  <p>自动化（工学学士），未来技术学院 &middot; GPA 83.7/100</p>
-
-  <p>主修课程：Python 程序设计、模拟/数字电子、物联网控制、工程制图（SolidWorks）、概率论与数理统计、线性代数、微积分。</p>
-
-  <p class="entry-meta">2024.09 &ndash; 至今</p>
-
-  <h3><a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">深圳 X-Institute</a> &middot; P-SRT 项目</h3>
-
-  <p>研究方向：机械手与夹爪设计。导师：张文增 副教授。</p>
-
-  <p>培养路径：X-idea &rarr; <strong>P-SRT（当前）</strong> &rarr; E-SRT &rarr; ORIC &rarr; SURF。该项目由深圳教育改革计划设立，参考清华大学"钱学森力学班"模式。</p>
-
-  <p class="entry-meta">2025.09 &ndash; 至今</p>
+  <div class="entry-row">
+    <div class="entry-logos">
+      <img src="清华.png" alt="清华">
+      <img src="零一.png" alt="零一">
+    </div>
+    <div class="entry-content">
+      <h3><a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">深圳 X-Institute</a> &middot; P-SRT 项目</h3>
+      <p>研究方向：机械手与夹爪设计。导师：张文增 副教授。</p>
+      <p>培养路径：X-idea &rarr; <strong>P-SRT（当前）</strong> &rarr; E-SRT &rarr; ORIC &rarr; SURF。该项目由深圳教育改革计划设立，参考清华大学"钱学森力学班"模式。</p>
+      <p class="entry-meta">2025.09 &ndash; 至今</p>
+    </div>
+  </div>
 
 </section>
 
 <!-- ===== EXPERIENCE EN ===== -->
-
 <section class="en">
-
   <h2>Experience</h2>
-
   <hr class="sec-rule">
 
-  <h3>P-SRT Researcher &middot; <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">Shenzhen X-Institute</a></h3>
+  <div class="entry-row">
+    <div class="entry-logos">
+      <img src="清华.png" alt="Tsinghua">
+      <img src="零一.png" alt="X-Institute">
+    </div>
+    <div class="entry-content">
+      <h3>P-SRT Researcher &middot; <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">Shenzhen X-Institute</a></h3>
+      <p>Independently proposed the initial concept of a dual-slide adaptive gripper; conducted mechanism analysis and feasibility study, leading to long-term advising.</p>
+      <p>Led a first-author gripper design (DS Hand, RAAI 2025); collaborated on idle-stroke gripper designs (RAAI 2025, ICCMA 2025).</p>
+      <p class="entry-meta">2025.09 &ndash; present</p>
+    </div>
+  </div>
 
-  <p>Independently proposed the initial concept of a dual-slide adaptive gripper; conducted mechanism analysis and feasibility study, leading to long-term advising.</p>
+  <div class="entry-row">
+    <div class="entry-logos">
+      <img src="ai lab.png" alt="Shanghai AI Lab">
+    </div>
+    <div class="entry-content">
+      <h3>Remote Research Assistant &middot; <a href="https://www.shlab.org.cn/" target="_blank">Shanghai AI Laboratory</a></h3>
+      <p>Remote RA under Researcher <a href="高远简历.pdf" target="_blank">Yuan Gao</a>. Developing visual-servoing control algorithms for robotic-arm grasping, and designing the mechanical end-effector (gripper) mounted on the arm.</p>
+      <p class="entry-meta">2026.04 &ndash; present (remote)</p>
+    </div>
+  </div>
 
-  <p>Led a first-author gripper design (DS Hand, RAAI 2025); collaborated on idle-stroke gripper designs (RAAI 2025, ICCMA 2025).</p>
-
-  <p class="entry-meta">2025.09 &ndash; present</p>
-
-  <h3>Remote Research Assistant &middot; <a href="https://www.shlab.org.cn/" target="_blank">Shanghai AI Laboratory</a></h3>
-
-  <p>Remote RA under Researcher Yuan Gao. Developing visual-servoing control algorithms for robotic-arm grasping, and designing the mechanical end-effector (gripper) mounted on the arm.</p>
-
-  <p class="entry-meta">2026.04 &ndash; present (remote)</p>
-
-  <h3>Quantum &amp; AI Winter School &middot; <a href="https://www.slai.edu.cn" target="_blank">Shenzhen Loop Area Institute</a></h3>
-
-  <p>Studied generative-model-based quantum variational circuit simulation (MLP / LSTM / Transformer architectures) under Prof. Peng Zhang (Tianjin University). Worked on state fidelity optimization, mixed-state simulation, and physics-constrained training.</p>
-
-  <p class="entry-meta">2026.01</p>
+  <div class="entry-row">
+    <div class="entry-logos">
+      <img src="河套.png" alt="Loop Area Institute">
+    </div>
+    <div class="entry-content">
+      <h3>Quantum &amp; AI Winter School &middot; <a href="https://www.slai.edu.cn" target="_blank">Shenzhen Loop Area Institute</a></h3>
+      <p>Studied generative-model-based quantum variational circuit simulation (MLP / LSTM / Transformer architectures) under Prof. Peng Zhang (Tianjin University). Worked on state fidelity optimization, mixed-state simulation, and physics-constrained training.</p>
+      <p class="entry-meta">2026.01</p>
+    </div>
+  </div>
 
 </section>
 
 <!-- ===== EXPERIENCE CN ===== -->
-
 <section class="cn">
-
   <h2>科研与工作经历</h2>
-
   <hr class="sec-rule">
 
-  <h3>P-SRT 研究者 &middot; <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">深圳 X-Institute</a></h3>
+  <div class="entry-row">
+    <div class="entry-logos">
+      <img src="清华.png" alt="清华">
+      <img src="零一.png" alt="零一">
+    </div>
+    <div class="entry-content">
+      <h3>P-SRT 研究者 &middot; <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">深圳 X-Institute</a></h3>
+      <p>独立提出双滑块自适应夹爪的最初构想；完成机构分析与可行性研究，获得导师长期指导。</p>
+      <p>主导一项一作夹爪设计（DS Hand，RAAI 2025）；合作参与空行程夹爪设计（RAAI 2025、ICCMA 2025）。</p>
+      <p class="entry-meta">2025.09 &ndash; 至今</p>
+    </div>
+  </div>
 
-  <p>独立提出双滑块自适应夹爪的最初构想；完成机构分析与可行性研究，获得导师长期指导。</p>
+  <div class="entry-row">
+    <div class="entry-logos">
+      <img src="ai lab.png" alt="上海AI实验室">
+    </div>
+    <div class="entry-content">
+      <h3>远程研究助理 &middot; <a href="https://www.shlab.org.cn/" target="_blank">上海人工智能实验室</a></h3>
+      <p>在<a href="高远简历.pdf" target="_blank">高远</a>研究员指导下担任远程 RA，研究机械臂抓取中的视觉伺服控制算法，并负责臂端夹爪的机械设计。</p>
+      <p class="entry-meta">2026.04 &ndash; 至今（远程）</p>
+    </div>
+  </div>
 
-  <p>主导一项一作夹爪设计（DS Hand，RAAI 2025）；合作参与空行程夹爪设计（RAAI 2025、ICCMA 2025）。</p>
-
-  <p class="entry-meta">2025.09 &ndash; 至今</p>
-
-  <h3>远程研究助理 &middot; <a href="https://www.shlab.org.cn/" target="_blank">上海人工智能实验室</a></h3>
-
-  <p>在高远研究员指导下担任远程 RA，研究机械臂抓取中的视觉伺服控制算法，并负责臂端夹爪的机械设计。</p>
-
-  <p class="entry-meta">2026.04 &ndash; 至今（远程）</p>
-
-  <h3>量子 &amp; AI 冬令营 &middot; <a href="https://www.slai.edu.cn" target="_blank">深圳河套研究院</a></h3>
-
-  <p>在天津大学张鹏教授指导下，研究基于生成模型（MLP / LSTM / Transformer）的量子变分线路模拟，内容涵盖态保真度优化、混合态模拟与物理约束训练。</p>
-
-  <p class="entry-meta">2026.01</p>
+  <div class="entry-row">
+    <div class="entry-logos">
+      <img src="河套.png" alt="河套">
+    </div>
+    <div class="entry-content">
+      <h3>量子 &amp; AI 冬令营 &middot; <a href="https://www.slai.edu.cn" target="_blank">深圳河套研究院</a></h3>
+      <p>在天津大学张鹏教授指导下，研究基于生成模型（MLP / LSTM / Transformer）的量子变分线路模拟，内容涵盖态保真度优化、混合态模拟与物理约束训练。</p>
+      <p class="entry-meta">2026.01</p>
+    </div>
+  </div>
 
 </section>
 
 <!-- ===== SERVICE EN ===== -->
-
 <section class="en">
-
   <h2>Service &amp; Leadership</h2>
-
   <hr class="sec-rule">
-
   <ul class="service-list">
-
     <li><strong>Reviewer</strong>, IEEE IROS 2026.</li>
-
     <li>Head of Organization Department, Future Technology School, SZTU (2024.12 &ndash; present).</li>
-
     <li>Class Monitor &amp; Youth League Secretary (2024.09 &ndash; 2025.10).</li>
-
     <li>Deputy Team Leader, 15th "Challenge Cup" Student Entrepreneurship Competition (2025), awarded Excellence Prize at the university round.</li>
-
   </ul>
-
 </section>
 
 <!-- ===== SERVICE CN ===== -->
-
 <section class="cn">
-
   <h2>社会工作与领导经历</h2>
-
   <hr class="sec-rule">
-
   <ul class="service-list">
-
     <li><strong>审稿人</strong>，IEEE IROS 2026。</li>
-
     <li>深圳技术大学未来技术学院 组织部部长（2024.12 &ndash; 至今）。</li>
-
     <li>班长 &amp; 团支书（2024.09 &ndash; 2025.10）。</li>
-
     <li>第十五届"挑战杯"大学生创业计划竞赛（2025）副队长，校赛荣获优秀奖。</li>
-
   </ul>
-
 </section>
 
 <!-- ===== SKILLS EN ===== -->
-
 <section class="en">
-
   <h2>Skills</h2>
-
   <hr class="sec-rule">
-
   <p><strong>Mechanism design &amp; prototyping:</strong> parallel-jaw coupled grippers, linear linkages, parallelogram linkages, underactuated &amp; tendon-driven hands; SolidWorks (modeling / assembly / kinematic simulation); Bambu Lab 3D printing; rapid iteration, failure analysis, grasping experiment design.</p>
-
   <p><strong>Academic writing:</strong> IEEE journal &amp; conference formatting; experienced with the full submission pipeline; AI-assisted literature review.</p>
-
   <p><strong>Programming:</strong> Python; basic experience with deep learning frameworks applied to point cloud / quantum circuit simulation.</p>
-
   <p><strong>Languages:</strong> Chinese (native); English (CET-4: 580; IELTS scheduled 2026.12).</p>
-
 </section>
 
 <!-- ===== SKILLS CN ===== -->
-
 <section class="cn">
-
   <h2>技能</h2>
-
   <hr class="sec-rule">
-
   <p><strong>机构设计与样机制作：</strong>平夹耦合夹爪、直线连杆、平行四边形连杆、欠驱动与腱驱动机械手；SolidWorks（建模 / 装配 / 运动学仿真）；拓竹 3D 打印；快速迭代、失效分析、抓取实验设计。</p>
-
   <p><strong>学术写作：</strong>IEEE 期刊与会议格式；熟悉完整投稿流程；善用 AI 辅助文献综述。</p>
-
   <p><strong>编程：</strong>Python；有基础的深度学习框架使用经验，应用于点云与量子线路仿真。</p>
-
   <p><strong>语言：</strong>中文（母语）；英语（CET-4: 580；IELTS 预计于2026.12考试）。</p>
-
 </section>
 
 <!-- ===== AWARDS EN ===== -->
-
 <section class="en">
-
   <h2>Awards</h2>
-
   <hr class="sec-rule">
-
   <h3>Selected Honors</h3>
-
   <ul class="awards-list">
-
     <li><span>Dean's Special Award for Rising Talent, Zhenxiong (Future Technology School, SZTU)</span><span class="award-year">2024-2025</span></li>
-
     <li><span><strong>Crystal Prize</strong> for Scientific &amp; Technological Innovation (top 10 across SZTU)</span><span class="award-year">2025</span></li>
-
     <li><span><strong>Outstanding Student Cadre</strong>, SZTU</span><span class="award-year">2024, 2025</span></li>
-
     <li><span>Excellence Prize, 15th "Challenge Cup" Student Entrepreneurship Competition (university round)</span><span class="award-year">2025</span></li>
-
   </ul>
-
 </section>
 
 <!-- ===== AWARDS CN ===== -->
-
 <section class="cn">
-
   <h2>获奖</h2>
-
   <hr class="sec-rule">
-
   <h3>主要荣誉</h3>
-
   <ul class="awards-list">
-
     <li><span>正雄未来人才特别奖学金（深圳技术大学未来技术学院）</span><span class="award-year">2024-2025</span></li>
-
     <li><span><strong>水晶奖学金</strong>（科技创新，全校前 10）</span><span class="award-year">2025</span></li>
-
     <li><span><strong>优秀学生干部</strong>，深圳技术大学</span><span class="award-year">2024, 2025</span></li>
-
     <li><span>第十五届"挑战杯"大学生创业计划竞赛校赛 优秀奖</span><span class="award-year">2025</span></li>
-
   </ul>
-
 </section>
 
 <!-- ===== VISITOR GLOBE ===== -->
-
 <section class="globe-section">
-
   <h2 class="en">Visitors</h2>
-
   <h2 class="cn">访客地图</h2>
-
   <hr class="sec-rule">
-
   <p class="en" style="text-align:center; margin-bottom:12px; color:var(--text-muted); font-size:14px;">
-
   Total visitors: <span id="busuanzi_value_site_uv"></span> &middot;
-
   Total views: <span id="busuanzi_value_site_pv"></span>
-
 </p>
-
 <p class="cn" style="text-align:center; margin-bottom:12px; color:var(--text-muted); font-size:14px;">
-
   总访客数: <span id="busuanzi_value_site_uv"></span> &middot;
-
   总浏览量: <span id="busuanzi_value_site_pv"></span>
-
 </p>
-
   <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=HWuicbWj_tdV9OuzU0jbsDOaE5fzPHbiPzjoiX5BFVE&w=200"></script>
-
 </section>
 
 <!-- ===== FOOTER ===== -->
-
 <footer>
-
   <p class="en">&copy; 2025-2026 Haotong Luan &middot; Last updated 2026-04-18</p>
-
   <p class="cn">&copy; 2025-2026 栾皓童 &middot; 最后更新 2026-04-18</p>
-
   <p class="en">Inspired by the visual style of <a href="https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank">hugo-theme-console</a>.</p>
-
   <p class="cn">视觉风格参考自 <a href="https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank">hugo-theme-console</a>.</p>
-
 </footer>
 
 <!-- ===== JS ===== -->
-
 <script>
-
 function toggleTheme(){
-
   var h=document.documentElement, c=h.getAttribute('data-theme'),
-
       n=c==='dark'?'light':'dark';
-
   h.setAttribute('data-theme',n);
-
   document.getElementById('themeBtn').innerHTML=n==='dark'?'&#9788;':'&#9790;';
-
   localStorage.setItem('theme',n);
-
 }
-
 function toggleLang(){
-
   var h=document.documentElement, c=h.getAttribute('lang'),
-
       n=c==='en'?'zh':'en';
-
   h.setAttribute('lang',n);
-
   document.getElementById('langBtn').textContent=n==='en'?'EN | 中':'中 | EN';
-
   localStorage.setItem('lang',n);
-
 }
-
 (function(){
-
   var t=localStorage.getItem('theme');
-
   if(t){document.documentElement.setAttribute('data-theme',t);
-
     if(t==='dark')document.getElementById('themeBtn').innerHTML='&#9788;';}
-
   var l=localStorage.getItem('lang');
-
   if(l){document.documentElement.setAttribute('lang',l);
-
     if(l==='zh')document.getElementById('langBtn').textContent='中 | EN';}
-
 })();
-
 </script>
-
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
 </body>
-
 </html>
