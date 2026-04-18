@@ -1,113 +1,483 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haotong Luan | 栾皓童 - Personal Homepage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 40px 20px; background-color: #f9f9f9; }
-        header { display: flex; align-items: center; margin-bottom: 40px; }
-        .profile-img { width: 180px; height: 220px; background: #ddd; border-radius: 8px; margin-right: 30px; display: flex; align-items: center; justify-content: center; color: #666; }
-        .bio { flex: 1; }
-        h1 { margin: 0; color: #2c3e50; }
-        .links { margin-top: 15px; }
-        .links a { margin-right: 15px; color: #3498db; text-decoration: none; font-size: 1.1em; }
-        h2 { border-bottom: 2px solid #2c3e50; padding-bottom: 5px; margin-top: 40px; color: #2c3e50; }
-        .pub-item { margin-bottom: 20px; padding-left: 20px; border-left: 3px solid #eee; }
-        .pub-title { font-weight: bold; color: #2c3e50; }
-        .pub-authors { font-size: 0.95em; }
-        .me { text-decoration: underline; font-weight: bold; }
-        .pub-venue { font-style: italic; color: #7f8c8d; }
-        .tag { background: #e67e22; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; vertical-align: middle; }
-        .section-list { list-style: none; padding: 0; }
-        .section-list li { margin-bottom: 10px; }
-        .award-date { float: right; color: #7f8c8d; }
-    </style>
+<meta charset="UTF-8" />
+<title>Haotong Luan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Haotong Luan is an undergraduate researcher working on underactuated robotic grippers, mechanism design, and environment-adaptive grasping." />
+<meta name="color-scheme" content="light dark" />
+<meta property="og:title" content="Haotong Luan" />
+<meta property="og:description" content="Undergraduate researcher in robotics, underactuated grippers, and mechanism design." />
+<meta property="og:url" content="https://HaotongLuan.github.io/" />
+<meta property="og:type" content="website" />
+<link rel="canonical" href="https://HaotongLuan.github.io/" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23161b22'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='26' fill='%23f6f7f9'%3EHL%3C/text%3E%3C/svg%3E" />
+<style>
+  /* ================= Theme ================= */
+  :root {
+    --bg: #f6f7f9;
+    --fg: #161b22;
+    --muted: #5a6472;
+    --accent: #0f62fe;
+    --rule: #161b22;
+    --card: #ffffff;
+    --border: #d0d7de;
+  }
+  html[data-theme="dark"] {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --rule: #e6edf3;
+    --card: #161b22;
+    --border: #30363d;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "JetBrains Mono", "Fira Code", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 860px; margin: 0 auto; padding: 28px 24px 80px; }
+
+  /* ================= Nav ================= */
+  .site-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 18px; border-bottom: 1px dashed var(--border); margin-bottom: 32px;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .site-mark { font-weight: 700; }
+  .site-mark-link { color: var(--fg); }
+  .site-mark-prompt { color: var(--muted); margin-left: 2px; }
+  .nav-links a { margin-left: 16px; color: var(--fg); }
+  .nav-links a:hover { color: var(--accent); }
+  #theme-switcher {
+    margin-left: 16px; background: transparent; color: var(--fg);
+    border: 1px solid var(--border); border-radius: 4px;
+    width: 32px; height: 32px; cursor: pointer; font-size: 16px;
+  }
+  #theme-switcher:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ================= Hero ================= */
+  .hero {
+    display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: start;
+    margin-bottom: 40px;
+  }
+  .profile-container {
+    width: 160px; height: 200px; border: 1px solid var(--border); border-radius: 6px;
+    background: var(--card); display: flex; align-items: center; justify-content: center;
+    font-size: 56px; font-weight: 700; color: var(--muted); overflow: hidden;
+  }
+  .profile-container img { width: 100%; height: 100%; object-fit: cover; }
+  .intro-title { font-size: 18px; margin: 0; color: var(--muted); }
+  .hero-title { font-size: 34px; margin: 4px 0 0 0; letter-spacing: 0.5px; }
+  .intro-rule { margin: 2px 0 10px 0; color: var(--muted); letter-spacing: 1px; }
+  .intro-kicker { margin: 0 0 14px 0; color: var(--muted); font-style: italic; }
+  .hero-copy p { margin: 10px 0; }
+  .hero-links { margin-top: 14px !important; color: var(--muted); }
+  .hero-links span { margin: 0 6px; }
+  .hero-focus { margin-top: 10px !important; color: var(--muted); font-size: 13.5px; }
+  .focus-label { color: var(--accent); font-weight: 700; }
+
+  /* ================= Sections ================= */
+  .content-section { margin-top: 44px; }
+  .content-section h2 {
+    font-size: 20px; margin: 0 0 4px 0; text-transform: lowercase;
+    letter-spacing: 0.5px;
+  }
+  .content-section h2::before { content: "# "; color: var(--accent); }
+  .latest-heading h2 { text-transform: none; }
+  .latest-heading-rule { margin: 0 0 16px 0; color: var(--muted); letter-spacing: 1px; }
+  .content-section > h2 + * { margin-top: 14px; }
+
+  /* Publications */
+  .publication-list { list-style: none; padding: 0; margin: 0; }
+  .publication-item {
+    padding: 12px 0; border-bottom: 1px dashed var(--border);
+  }
+  .publication-item:last-child { border-bottom: none; }
+  .pub-title { font-weight: 600; }
+  .pub-links { margin-left: 8px; color: var(--muted); font-size: 13px; }
+  .pub-links a, .inline-link { color: var(--accent); margin: 0 2px; cursor: pointer; }
+  .inline-link { background: none; border: none; padding: 0; font: inherit; }
+  .pub-authors-line { color: var(--muted); margin-top: 4px; font-size: 14px; }
+  .pub-venue-line { color: var(--fg); margin-top: 2px; font-size: 14px; font-style: italic; }
+  .latest-publications-more { margin-top: 14px; font-size: 14px; }
+  .pub-status {
+    display: inline-block; margin-left: 6px; padding: 1px 6px;
+    font-size: 11px; border: 1px solid var(--border); border-radius: 3px;
+    color: var(--muted); vertical-align: middle;
+  }
+  .pub-status.under-review { border-color: var(--accent); color: var(--accent); }
+
+  /* News */
+  .news-list { list-style: none; padding: 0; margin: 0; }
+  .news-item { display: flex; gap: 14px; padding: 6px 0; }
+  .news-date { color: var(--muted); min-width: 72px; font-variant-numeric: tabular-nums; }
+  .news-text { flex: 1; }
+
+  /* Research */
+  .stack-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stack-item {
+    border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px;
+    background: var(--card);
+  }
+  .stack-item h3 { margin: 0 0 6px 0; font-size: 15px; }
+  .stack-item p { margin: 0; color: var(--muted); font-size: 14px; }
+  .stack-tags { margin-top: 10px !important; font-size: 12.5px; color: var(--accent); }
+
+  /* Education / Experience */
+  .detail-list { display: flex; flex-direction: column; gap: 16px; }
+  .detail-item {
+    display: flex; justify-content: space-between; gap: 16px; align-items: flex-start;
+    border-bottom: 1px dashed var(--border); padding-bottom: 12px;
+  }
+  .detail-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .detail-main h3 { margin: 0 0 2px 0; font-size: 15px; }
+  .detail-main p { margin: 2px 0; color: var(--muted); font-size: 14px; }
+  .detail-side { color: var(--muted); font-size: 13.5px; white-space: nowrap; }
+
+  /* Awards */
+  .award-group h3 { margin: 0 0 8px 0; font-size: 15px; color: var(--muted); text-transform: lowercase; }
+  .award-list { list-style: none; padding: 0; margin: 0; }
+  .award-list li { display: flex; justify-content: space-between; gap: 10px; padding: 5px 0; border-bottom: 1px dashed var(--border); }
+  .award-list li:last-child { border-bottom: none; }
+  .award-year { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* Skills / Service */
+  .plain-list { padding-left: 20px; margin: 0; }
+  .plain-list li { margin: 4px 0; }
+  .skill-block { margin: 10px 0; }
+  .skill-block strong { color: var(--fg); }
+  .skill-block span { color: var(--muted); }
+
+  /* Footer */
+  .site-footer {
+    margin-top: 64px; padding-top: 18px; border-top: 1px dashed var(--border);
+    color: var(--muted); font-size: 13px;
+  }
+  .footer-meta { margin: 0 0 6px 0; }
+  .footer-credit { margin: 0; }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; }
+    .profile-container { width: 120px; height: 150px; margin: 0 auto; font-size: 42px; }
+    .stack-list { grid-template-columns: 1fr; }
+    .detail-item { flex-direction: column; gap: 4px; }
+    .detail-side { align-self: flex-start; }
+    .hero-title { font-size: 28px; }
+  }
+</style>
 </head>
 <body>
+<div class="container">
 
-<header>
-    <div class="profile-img">照片位置<br>(建议放置正装照)</div>
-    <div class="bio">
-        <h1>栾皓童 (Haotong Luan)</h1>
-        <p>
-            深圳技术大学 · 未来技术学院 · 2024级本科生 <br>
-            深圳零一学院 (X-Institute) · PSRT学生 <br>
-            IEEE Student Member
-        </p>
-        <p><strong>研究方向：</strong>环境约束自适应机器人手与机构学设计</p>
-        <div class="links">
-            <a href="mailto:lht20060306@outlook.com"><i class="fas fa-envelope"></i> Email</a>
-            <a href="#"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        </div>
+  <!-- Nav -->
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-brand">
+      <span class="site-mark">
+        <a class="site-mark-link" href="index.html">Haotong Luan</a><span class="site-mark-prompt">:~#</span>
+      </span>
     </div>
-</header>
+    <div class="nav-links">
+      <a href="#publications">Publications/</a>
+      <a href="#news">News/</a>
+      <a href="mailto:lht20060306@outlook.com">Contact/</a>
+      <button id="theme-switcher" type="button" aria-label="Toggle dark mode">☾</button>
+    </div>
+  </nav>
 
-<section id="about">
-    <h2>关于我 (About Me)</h2>
-    <p>我专注于自动化专业基础学习与环境自适应机器人手的研究。在零一学院“创生教育”体系下，通过 P-SRT 训练，形成了扎实的科研能力。在机器人手方向，我以直线机构（Peacellier, Idle-Stroke 等）为核心，设计了多代机械抓持器，旨在解决桌面与工业场景的自适应抓取挑战。</p>
-</section>
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="hero-media">
+      <div class="profile-container" id="profileBox">
+        <!-- Replace src below with your own photo, e.g. assets/images/haotong-luan-photo.jpg -->
+        <span aria-hidden="true">HL</span>
+      </div>
+    </div>
+    <div class="hero-copy hero-intro">
+      <p class="intro-title">Hi!</p>
+      <h1 class="hero-title">Haotong Luan</h1>
+      <p class="intro-rule">===========</p>
+      <p class="intro-kicker">Undergraduate researcher in robotics</p>
+      <p>
+        I am Haotong Luan (栾皓童), an undergraduate at the Future Technology School,
+        <strong>Shenzhen Technology University</strong>, and a P-SRT student at
+        <strong>Shenzhen X-Institute</strong>. I am also an IEEE Student Member.
+      </p>
+      <p>
+        I work under the supervision of Prof.
+        <a href="https://scholar.google.com/citations?user=n-3doEMAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer">Wenzeng Zhang</a>
+        on underactuated robotic hands, and with Prof.
+        <a href="mailto:yangtao@sztu.edu.cn">Tao Yang</a> on mechanism design and engineering projects.
+      </p>
+      <p>
+        My research focuses on <strong>environment-adaptive robotic hands and mechanism design</strong>:
+        linear-motion linkages, parallelogram mechanisms, underactuated and tendon-driven grippers,
+        card-scooping hands, grasp-and-lift mechanisms, and idle-stroke transmissions.
+      </p>
+      <p class="hero-links">
+        <a href="mailto:lht20060306@outlook.com">Email</a>
+        <span>/</span>
+        <a href="https://github.com/HaotongLuan" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span>/</span>
+        <a href="tel:+8618653336550">Phone</a>
+      </p>
+      <p class="hero-focus"><span class="focus-label">&gt; focus:</span> underactuated grippers / environment-adaptive grasping / mechanism design</p>
+    </div>
+  </header>
 
-<section id="education">
-    <h2>教育背景 (Education)</h2>
-    <ul class="section-list">
-        <li>
-            <strong>深圳技术大学 (SZTU)</strong> <span class="award-date">2024.09 — 至今</span><br>
-            自动化专业 (本科在读), GPA: 83.7/100
+  <main class="main-content">
+
+    <!-- Publications -->
+    <section class="content-section latest-publications" id="publications">
+      <div class="latest-heading">
+        <h2>Selected publications</h2>
+        <p class="latest-heading-rule">===================</p>
+      </div>
+      <ol class="publication-list selected-list">
+
+        <li class="publication-item">
+          <div class="pub-body">
+            <div class="pub-title-line">
+              <span class="pub-title">An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability</span>
+            </div>
+            <div class="pub-authors-line"><strong>Haotong Luan</strong>, W. Zhang*, T. Yang*</div>
+            <div class="pub-venue-line">RAAI 2025 (Accepted)</div>
+          </div>
         </li>
-        <li>
-            <strong>深圳零一学院 (X-Institute)</strong> <span class="award-date">2025.09 — 至今</span><br>
-            机器人手机械抓持器设计 (导师: 张文增副教授)
+
+        <li class="publication-item">
+          <div class="pub-body">
+            <div class="pub-title-line">
+              <span class="pub-title">GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation</span>
+            </div>
+            <div class="pub-authors-line">H. Ding, <strong>Haotong Luan</strong>, T. Yang*, W. Zhang*</div>
+            <div class="pub-venue-line">ICCMA 2025 (Accepted)</div>
+          </div>
         </li>
-    </ul>
-</section>
 
-<section id="publications">
-    <h2>论文发表 (Publications)</h2>
-    
-    <div class="pub-item">
-        <span class="tag">Accepted</span>
-        <div class="pub-title">An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability</div>
-        <div class="pub-authors"><span class="me">Haotong Luan</span>, Wenzeng Zhang*, Tao Yang*</div>
-        <div class="pub-venue">2025 RAAI (录用)</div>
-    </div>
+        <li class="publication-item">
+          <div class="pub-body">
+            <div class="pub-title-line">
+              <span class="pub-title">An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping</span>
+            </div>
+            <div class="pub-authors-line">Y. Chen, <strong>Haotong Luan</strong>, H. Ding, W. Zhang*</div>
+            <div class="pub-venue-line">RAAI 2025 (Accepted)</div>
+          </div>
+        </li>
 
-    <div class="pub-item">
-        <span class="tag">Accepted</span>
-        <div class="pub-title">GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation</div>
-        <div class="pub-authors">Haokai Ding, <span class="me">Haotong Luan</span>, Tao Yang*, Wenzeng Zhang*</div>
-        <div class="pub-venue">2025 ICCMA (录用)</div>
-    </div>
+        <li class="publication-item">
+          <div class="pub-body">
+            <div class="pub-title-line">
+              <span class="pub-title">DPSG Hand: A Dual-Parallelogram and Slot-Guided Gripper for Adaptive Grasping and Environmental Scooping</span>
+              <span class="pub-status under-review">under review</span>
+            </div>
+            <div class="pub-authors-line"><strong>Haotong Luan</strong>, W. Zhang*</div>
+            <div class="pub-venue-line">IEEE CASE 2026 (Under review, first author)</div>
+          </div>
+        </li>
 
-    <div class="pub-item">
-        <span class="tag">Under Review</span>
-        <div class="pub-title">DPSG Hand: A Dual-Parallelogram and Slot-Guided Gripper for Adaptive Grasping and Environmental Scooping</div>
-        <div class="pub-authors"><span class="me">Haotong Luan</span>, Wenzeng Zhang*</div>
-        <div class="pub-venue">Submitted to 2026 IEEE CASE (一作在审)</div>
-    </div>
-</section>
+        <li class="publication-item">
+          <div class="pub-body">
+            <div class="pub-title-line">
+              <span class="pub-title">A Robot Hand with Strong Environmental Adaptability for Grasping, Scooping, and Lifting Based on a Hybrid Parallelogram Mechanism Design</span>
+              <span class="pub-status">in preparation</span>
+            </div>
+            <div class="pub-authors-line"><strong>Haotong Luan</strong>, W. Zhang*</div>
+            <div class="pub-venue-line">Target: IEEE IROS 2026 (first author)</div>
+          </div>
+        </li>
 
-<section id="awards">
-    <h2>获奖情况 (Selected Awards)</h2>
-    <ul class="section-list">
-        <li>未来技术学院震雄新才院长特别奖 <span class="award-date">2024-2025</span></li>
-        <li>深圳技术大学“晶体奖”科技创新奖学金 (全校仅10人) <span class="award-date">2025</span></li>
-        <li>校级优秀学生干部 <span class="award-date">2024, 2025</span></li>
-    </ul>
-</section>
+        <li class="publication-item">
+          <div class="pub-body">
+            <div class="pub-title-line">
+              <span class="pub-title">SP Hand: An Underactuated Gripper with Mode Switching for Adaptive Pinching and Scooping</span>
+              <span class="pub-status">in preparation</span>
+            </div>
+            <div class="pub-authors-line"><strong>Haotong Luan</strong>, W. Zhang*</div>
+            <div class="pub-venue-line">Target: IEEE IROS 2026 (first author)</div>
+          </div>
+        </li>
 
-<section id="skills">
-    <h2>专业技能 (Skills)</h2>
-    <p><strong>机构设计：</strong>直线机构、平行四边形连杆、欠驱动/腱绳驱动设计、SolidWorks 建模与仿真。</p>
-    <p><strong>原型制作：</strong>Bambu Lab 3D 打印、快速迭代、抓取实验评估。</p>
-    <p><strong>语言能力：</strong>中文 (母语), 英语 (CET-4: 580, 雅思备考中)。</p>
-</section>
+        <li class="publication-item">
+          <div class="pub-body">
+            <div class="pub-title-line">
+              <span class="pub-title">PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts</span>
+              <span class="pub-status">in preparation</span>
+            </div>
+            <div class="pub-authors-line">(co-author), <strong>Haotong Luan</strong></div>
+            <div class="pub-venue-line">Target: IEEE IROS 2026</div>
+          </div>
+        </li>
 
-<footer style="margin-top: 60px; text-align: center; color: #7f8c8d; font-size: 0.8em;">
-    &copy; 2026 Haotong Luan. Built with passion for Robotics.
-</footer>
+      </ol>
+    </section>
 
+    <!-- News -->
+    <section class="content-section" id="news">
+      <h2>news</h2>
+      <ul class="news-list">
+        <li class="news-item"><span class="news-date">2026.01</span><span class="news-text">Selected as the <strong>youngest of only 9 undergraduates</strong> (among 70+ participants) for the Quantum &amp; AI Winter School jointly held by Shenzhen International Quantum Academy and Shenzhen Futian Institute.</span></li>
+        <li class="news-item"><span class="news-date">2025.12</span><span class="news-text">Approved as a <strong>CPC Party Membership Development Target</strong>.</span></li>
+        <li class="news-item"><span class="news-date">2025.11</span><span class="news-text">Paper <em>DPSG Hand</em> submitted to <strong>IEEE CASE 2026</strong> as first author.</span></li>
+        <li class="news-item"><span class="news-date">2025.11</span><span class="news-text">Three papers accepted by <strong>RAAI 2025 / ICCMA 2025</strong> (including one first-author paper on the DS Hand).</span></li>
+        <li class="news-item"><span class="news-date">2025.09</span><span class="news-text">Joined Shenzhen X-Institute as a <strong>P-SRT</strong> student, advised by Prof. Wenzeng Zhang.</span></li>
+        <li class="news-item"><span class="news-date">2025.06</span><span class="news-text">Awarded the <strong>Crystal Prize</strong> for Scientific Innovation (only 10 across the whole university).</span></li>
+      </ul>
+    </section>
+
+    <!-- Research -->
+    <section class="content-section" id="research">
+      <h2>research</h2>
+      <div class="stack-list">
+        <article class="stack-item">
+          <div>
+            <h3>01 · underactuated grippers</h3>
+            <p>Linear-motion linkages, parallelogram mechanisms, and idle-stroke transmissions that embed grasping logic directly into the hardware, enabling reliable grasping with a single actuator.</p>
+          </div>
+          <p class="stack-tags">dual-parallelogram · idle-stroke · single-actuator</p>
+        </article>
+        <article class="stack-item">
+          <div>
+            <h3>02 · environment-adaptive hands</h3>
+            <p>Hands that exploit contact with tables or walls to switch modes automatically — from pinching to scooping to lifting — robust to pose error and collision during manipulator operation.</p>
+          </div>
+          <p class="stack-tags">card scooping · mode switching · contact-triggered</p>
+        </article>
+        <article class="stack-item">
+          <div>
+            <h3>03 · mechanism design</h3>
+            <p>Peaucellier and semi-Peaucellier linkages, slot-guided mechanisms, and hybrid parallelogram designs aimed at precise linear fingertip motion and posture-preserving grasping.</p>
+          </div>
+          <p class="stack-tags">Peaucellier · slot-guided · linear linkage</p>
+        </article>
+        <article class="stack-item">
+          <div>
+            <h3>04 · embodied intelligence (future)</h3>
+            <p>Long-term interest in the intersection of mechanism design and embodied intelligence — coupling hardware-embedded logic with learning-based control for resource-constrained robotics.</p>
+          </div>
+          <p class="stack-tags">embodied AI · hardware-software co-design</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="content-section" id="education">
+      <h2>education</h2>
+      <div class="detail-list">
+
+        <article class="detail-item">
+          <div class="detail-main">
+            <h3>Shenzhen Technology University</h3>
+            <p>B.Eng. in Automation, Future Technology School · GPA 83.7/100</p>
+            <p>Key courses: Python programming, analog/digital electronics, IoT control, engineering graphics (SolidWorks), probability &amp; statistics, linear algebra, calculus.</p>
+          </div>
+          <div class="detail-side">2024.09 – present</div>
+        </article>
+
+        <article class="detail-item">
+          <div class="detail-main">
+            <h3>Shenzhen X-Institute · P-SRT Program</h3>
+            <p>Research direction: robotic hand and gripper design. Advisor: Associate Prof. Wenzeng Zhang.</p>
+            <p>Track: X-idea → <strong>P-SRT (current)</strong> → E-SRT → ORIC → SURF. Founded under Shenzhen's educational reform initiative, inspired by Tsinghua's Tsien Excellence in Engineering Program.</p>
+          </div>
+          <div class="detail-side">2025.09 – present</div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="content-section" id="experience">
+      <h2>experience</h2>
+      <div class="detail-list">
+        <article class="detail-item">
+          <div class="detail-main">
+            <h3>P-SRT Researcher · Shenzhen X-Institute</h3>
+            <p>Independently proposed the initial concept of a dual-slide adaptive gripper; conducted mechanism analysis and feasibility study, leading to long-term advising.</p>
+            <p>Led two gripper designs (RAAI 2025, CASE 2026 under review) as first author; collaborated on idle-stroke gripper designs (RAAI 2025, ICCMA 2025).</p>
+          </div>
+          <div class="detail-side">2025.09 – present</div>
+        </article>
+        <article class="detail-item">
+          <div class="detail-main">
+            <h3>Quantum &amp; AI Winter School · Shenzhen Futian Institute</h3>
+            <p>Studied generative-model-based quantum variational circuit simulation (MLP / LSTM / Transformer architectures) under Prof. Peng Zhang (Tianjin University). Worked on state fidelity optimization, mixed-state simulation, and physics-constrained training.</p>
+          </div>
+          <div class="detail-side">2026.01</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Service -->
+    <section class="content-section" id="service">
+      <h2>service &amp; leadership</h2>
+      <ul class="plain-list">
+        <li>Head of Organization Department, Future Technology School, SZTU (2024.12 – present).</li>
+        <li>Class Monitor &amp; Youth League Secretary (2024.09 – 2025.10).</li>
+        <li>Deputy Team Leader, 15th "Challenge Cup" Student Entrepreneurship Competition (2025) — awarded Excellence Prize at the university round.</li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section class="content-section" id="skills">
+      <h2>skills</h2>
+      <div class="skill-block"><strong>Mechanism design &amp; prototyping:</strong> <span>parallel-jaw coupled grippers, linear linkages, parallelogram linkages, underactuated &amp; tendon-driven hands; SolidWorks (modeling / assembly / kinematic simulation); Bambu Lab 3D printing; rapid iteration, failure analysis, grasping experiment design.</span></div>
+      <div class="skill-block"><strong>Academic writing:</strong> <span>IEEE journal &amp; conference formatting; experienced with the full submission pipeline; AI-assisted literature review.</span></div>
+      <div class="skill-block"><strong>Programming:</strong> <span>Python; basic experience with deep learning frameworks applied to point cloud / quantum circuit simulation.</span></div>
+      <div class="skill-block"><strong>Languages:</strong> <span>Chinese (native); English (CET-4: 580, CET-6 taken; IELTS scheduled 2026.03).</span></div>
+    </section>
+
+    <!-- Awards -->
+    <section class="content-section" id="awards">
+      <h2>awards</h2>
+      <div class="award-group">
+        <h3>selected honors</h3>
+        <ul class="award-list">
+          <li><span class="award-name">Dean's Special Award for Rising Talent, Zhenxiong (Future Technology School, SZTU)</span><span class="award-year">2024–2025</span></li>
+          <li><span class="award-name">Crystal Prize for Scientific &amp; Technological Innovation (top 10 across SZTU)</span><span class="award-year">2025</span></li>
+          <li><span class="award-name">Outstanding Student Cadre, SZTU</span><span class="award-year">2024, 2025</span></li>
+          <li><span class="award-name">Excellence Prize, 15th "Challenge Cup" Student Entrepreneurship Competition (university round)</span><span class="award-year">2025</span></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-meta">© 2025–2026 Haotong Luan · Last updated <time datetime="2026-04-18">2026-04-18</time></p>
+    <p class="footer-credit">Inspired by the visual style of <a href="https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank" rel="noopener noreferrer">hugo-theme-console</a>.</p>
+  </footer>
+
+</div>
+
+<script>
+  // Theme toggle — remembers preference
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-switcher');
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var initial = saved || (prefersDark ? 'dark' : 'light');
+    root.setAttribute('data-theme', initial);
+    if (btn) {
+      btn.textContent = initial === 'dark' ? '☀' : '☾';
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        btn.textContent = next === 'dark' ? '☀' : '☾';
+      });
+    }
+  })();
+</script>
 </body>
 </html>
