@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Haotong Luan | 栾皓童</title>
+  /* 呼吸灯光标 */
+.cursor {
+  color: #00ff00;
+  animation: blink 1.2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
   <style>
     :root {
       --bg:#eef4fb; --text:#222; --text-sub:#555; --text-muted:#888;
@@ -111,7 +120,7 @@
 <!-- ===== TOPBAR ===== -->
 <nav class="topbar">
   <div class="topbar-left">
-    <a href="index.html" class="en">Haotong Luan</a><a href="index.html" class="cn">栾皓童</a>:~#
+    <a href="index.html" class="en">Haotong Luan</a><a href="index.html" class="cn">栾皓童</a>:~# <span class="cursor">█</span>
   </div>
   <div class="topbar-right">
     <a href="#publications" class="en">Publications/</a><a href="#publications" class="cn">论文/</a>
