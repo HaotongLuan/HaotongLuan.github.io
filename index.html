@@ -18,18 +18,16 @@
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     body {
       font-family:'Courier New',Courier,'Liberation Mono',monospace;
-      font-size:14px; line-height:1.75; color:var(--text); background:var(--bg);
+      font-size:16px; line-height:1.75; color:var(--text); background:var(--bg);
       padding:48px 24px 60px; max-width:1100px; margin:0 auto;
       transition:background .3s, color .3s;
     }
     a { color:var(--link); text-decoration:none; }
     a:hover { text-decoration:underline; }
     strong { font-weight:bold; }
-
     /* language toggle */
     html[lang="en"] .cn { display:none !important; }
     html[lang="zh"] .en { display:none !important; }
-
     .topbar {
       display:flex; justify-content:space-between; align-items:center;
       margin-bottom:8px; flex-wrap:wrap; gap:6px;
@@ -43,7 +41,6 @@
     }
     .tbtn:hover { text-decoration:underline; }
     .topbar-divider { border:none; border-top:1.5px dashed var(--topbar-border); margin-bottom:36px; }
-
     .hero { display:flex; gap:28px; align-items:flex-start; margin-bottom:40px; flex-wrap:wrap; }
     .hero-photo-placeholder {
       width:150px; height:180px; border-radius:4px; background:var(--photo-bg);
@@ -51,18 +48,17 @@
       font-size:36px; color:var(--photo-color); flex-shrink:0;
     }
     .hero-info { flex:1; min-width:280px; }
-    .hero-info h1 { font-size:32px; font-weight:bold; margin-bottom:2px; }
+    .hero-info h1 { font-size:34px; font-weight:bold; margin-bottom:2px; }
     .hero-info .underline { border:none; border-top:1.5px solid var(--border-strong); margin:4px 0 10px; }
-    .hero-info .subtitle { color:var(--text-sub); margin-bottom:12px; }
+    .hero-info .subtitle { color:var(--text-sub); margin-bottom:12px; font-size:17px; }
     .hero-info p { margin-bottom:8px; }
     .hero-links { margin-top:10px; }
     .hero-links a { margin-right:10px; }
-    .focus-line { color:var(--text-muted); margin-top:8px; font-size:13px; }
-
+    .focus-line { color:var(--text-muted); margin-top:8px; font-size:14px; }
     section { margin-bottom:36px; }
-    section h2 { font-size:15px; font-weight:bold; margin-bottom:4px; }
+    section h2 { font-size:20px; font-weight:bold; margin-bottom:4px; }
     section .sec-rule { border:none; border-top:1px solid var(--border); margin-bottom:16px; }
-    section h3 { font-size:14px; font-weight:bold; margin:18px 0 4px; }
+    section h3 { font-size:17px; font-weight:bold; margin:18px 0 4px; }
     .pub-item { margin-bottom:16px; }
     .pub-title { font-weight:bold; }
     .pub-authors { color:var(--authors); }
@@ -70,15 +66,15 @@
     .news-list { list-style:none; padding:0; }
     .news-list li { margin-bottom:6px; }
     .news-date { font-weight:bold; margin-right:6px; }
-    .tags { color:var(--text-muted); font-size:13px; margin-top:2px; }
-    .entry-meta { color:var(--text-muted); font-size:13px; margin-top:2px; }
+    .tags { color:var(--text-muted); font-size:14px; margin-top:2px; }
+    .entry-meta { color:var(--text-muted); font-size:14px; margin-top:2px; }
     .service-list { list-style:disc; padding-left:20px; }
     .service-list li { margin-bottom:4px; }
     .awards-list { list-style:none; padding:0; }
     .awards-list li { display:flex; justify-content:space-between; margin-bottom:4px; }
     .award-year { color:var(--text-muted); white-space:nowrap; margin-left:12px; }
     .globe-section { text-align:center; margin:40px 0 20px; }
-    footer { margin-top:48px; color:var(--text-dim); font-size:12px; text-align:center; }
+    footer { margin-top:48px; color:var(--text-dim); font-size:13px; text-align:center; }
     footer p { margin-bottom:2px; }
   </style>
 </head>
@@ -142,7 +138,7 @@
 
 <!-- ===== PUBLICATIONS EN ===== -->
 <section id="publications" class="en">
-  <h2>selected publications</h2>
+  <h2>Selected Publications</h2>
   <hr class="sec-rule">
   <div class="pub-item">
     <div class="pub-title">An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability</div>
@@ -214,7 +210,7 @@
 
 <!-- ===== NEWS EN ===== -->
 <section id="news" class="en">
-  <h2>news</h2>
+  <h2>News</h2>
   <hr class="sec-rule">
   <ul class="news-list">
     <li><span class="news-date">2026.04</span> Three papers (two first-author) submitted to <strong>IEEE IROS 2026</strong> and currently under review.</li>
@@ -240,18 +236,18 @@
 
 <!-- ===== RESEARCH EN ===== -->
 <section class="en">
-  <h2>research</h2>
+  <h2>Research</h2>
   <hr class="sec-rule">
-  <h3>01 &middot; underactuated grippers</h3>
+  <h3>01 &middot; Underactuated Grippers</h3>
   <p>Linear-motion linkages, parallelogram mechanisms, and idle-stroke transmissions that embed grasping logic directly into the hardware, enabling reliable grasping with a single actuator.</p>
   <p class="tags">dual-parallelogram &middot; idle-stroke &middot; single-actuator</p>
-  <h3>02 &middot; environment-adaptive hands</h3>
+  <h3>02 &middot; Environment-Adaptive Hands</h3>
   <p>Hands that exploit contact with tables or walls to switch modes automatically, from pinching to scooping to lifting, robust to pose error and collision during manipulator operation.</p>
   <p class="tags">card scooping &middot; mode switching &middot; contact-triggered</p>
-  <h3>03 &middot; mechanism design</h3>
+  <h3>03 &middot; Mechanism Design</h3>
   <p>Peaucellier and semi-Peaucellier linkages, slot-guided mechanisms, and hybrid parallelogram designs aimed at precise linear fingertip motion and posture-preserving grasping.</p>
   <p class="tags">Peaucellier &middot; slot-guided &middot; linear linkage</p>
-  <h3>04 &middot; embodied intelligence (future)</h3>
+  <h3>04 &middot; Embodied Intelligence (Future)</h3>
   <p>Long-term interest in the intersection of mechanism design and embodied intelligence, coupling hardware-embedded logic with learning-based control for resource-constrained robotics.</p>
   <p class="tags">embodied AI &middot; hardware-software co-design</p>
 </section>
@@ -276,7 +272,7 @@
 
 <!-- ===== EDUCATION EN ===== -->
 <section class="en">
-  <h2>education</h2>
+  <h2>Education</h2>
   <hr class="sec-rule">
   <h3>Shenzhen Technology University</h3>
   <p>B.Eng. in Automation, Future Technology School &middot; GPA 83.7/100</p>
@@ -304,7 +300,7 @@
 
 <!-- ===== EXPERIENCE EN ===== -->
 <section class="en">
-  <h2>experience</h2>
+  <h2>Experience</h2>
   <hr class="sec-rule">
   <h3>P-SRT Researcher &middot; <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">Shenzhen X-Institute</a></h3>
   <p>Independently proposed the initial concept of a dual-slide adaptive gripper; conducted mechanism analysis and feasibility study, leading to long-term advising.</p>
@@ -336,7 +332,7 @@
 
 <!-- ===== SERVICE EN ===== -->
 <section class="en">
-  <h2>service &amp; leadership</h2>
+  <h2>Service &amp; Leadership</h2>
   <hr class="sec-rule">
   <ul class="service-list">
     <li>Head of Organization Department, Future Technology School, SZTU (2024.12 &ndash; present).</li>
@@ -358,7 +354,7 @@
 
 <!-- ===== SKILLS EN ===== -->
 <section class="en">
-  <h2>skills</h2>
+  <h2>Skills</h2>
   <hr class="sec-rule">
   <p><strong>Mechanism design &amp; prototyping:</strong> parallel-jaw coupled grippers, linear linkages, parallelogram linkages, underactuated &amp; tendon-driven hands; SolidWorks (modeling / assembly / kinematic simulation); Bambu Lab 3D printing; rapid iteration, failure analysis, grasping experiment design.</p>
   <p><strong>Academic writing:</strong> IEEE journal &amp; conference formatting; experienced with the full submission pipeline; AI-assisted literature review.</p>
@@ -378,9 +374,9 @@
 
 <!-- ===== AWARDS EN ===== -->
 <section class="en">
-  <h2>awards</h2>
+  <h2>Awards</h2>
   <hr class="sec-rule">
-  <h3>selected honors</h3>
+  <h3>Selected Honors</h3>
   <ul class="awards-list">
     <li><span>Dean's Special Award for Rising Talent, Zhenxiong (Future Technology School, SZTU)</span><span class="award-year">2024-2025</span></li>
     <li><span>Crystal Prize for Scientific &amp; Technological Innovation (top 10 across SZTU)</span><span class="award-year">2025</span></li>
@@ -404,14 +400,14 @@
 
 <!-- ===== VISITOR GLOBE ===== -->
 <section class="globe-section">
-  <h2 class="en">visitors</h2>
+  <h2 class="en">Visitors</h2>
   <h2 class="cn">访客地图</h2>
   <hr class="sec-rule">
-  <p class="en" style="text-align:center; margin-bottom:12px; color:var(--text-muted); font-size:13px;">
+  <p class="en" style="text-align:center; margin-bottom:12px; color:var(--text-muted); font-size:14px;">
   Total visitors: <span id="busuanzi_value_site_uv"></span> &middot;
   Total views: <span id="busuanzi_value_site_pv"></span>
 </p>
-<p class="cn" style="text-align:center; margin-bottom:12px; color:var(--text-muted); fontS-size:13px;">S
+<p class="cn" style="text-align:center; margin-bottom:12px; color:var(--text-muted); font-size:14px;">
   总访客数: <span id="busuanzi_value_site_uv"></span> &middot;
   总浏览量: <span id="busuanzi_value_site_pv"></span>
 </p>
@@ -420,7 +416,6 @@
     前往 https://clustrmaps.com/bl 免费注册，获取你的地球仪小组件。
   -->
   <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=HWuicbWj_tdV9OuzU0jbsDOaE5fzPHbiPzjoiX5BFVE&w=200"></script>
-  </script>
 </section>
 
 <!-- ===== FOOTER ===== -->
