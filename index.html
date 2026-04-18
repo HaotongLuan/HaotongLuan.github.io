@@ -14,8 +14,6 @@
     a { color: #268bd2; text-decoration: none; }
     a:hover { text-decoration: underline; }
     strong { font-weight: bold; }
-
-    /* ---- top nav bar ---- */
     .topbar {
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: 8px;
@@ -26,8 +24,6 @@
     .topbar-divider {
       border: none; border-top: 1.5px dashed #ccc; margin-bottom: 36px;
     }
-
-    /* ---- hero ---- */
     .hero { display: flex; gap: 28px; align-items: flex-start; margin-bottom: 40px; }
     .hero-photo-placeholder {
       width: 150px; height: 180px; border-radius: 4px; background: #e8e8e8;
@@ -42,8 +38,6 @@
     .hero-links { margin-top: 10px; }
     .hero-links a { margin-right: 10px; }
     .focus-line { color: #888; margin-top: 8px; font-size: 13px; }
-
-    /* ---- sections ---- */
     section { margin-bottom: 36px; }
     section h2 {
       font-size: 15px; font-weight: bold; text-transform: lowercase;
@@ -51,43 +45,28 @@
     }
     section .sec-rule { border: none; border-top: 1px solid #ddd; margin-bottom: 16px; }
     section h3 { font-size: 14px; font-weight: bold; margin: 18px 0 4px; }
-
-    /* publications */
     .pub-item { margin-bottom: 16px; }
     .pub-title { font-weight: bold; }
     .pub-authors { color: #444; }
     .pub-venue { color: #268bd2; font-style: italic; }
-
-    /* news */
     .news-list { list-style: none; padding: 0; }
     .news-list li { margin-bottom: 6px; }
     .news-date { font-weight: bold; margin-right: 6px; }
-
-    /* research tags */
     .tags { color: #888; font-size: 13px; margin-top: 2px; }
-
-    /* education & experience */
     .entry-meta { color: #888; font-size: 13px; margin-top: 2px; }
-
-    /* service list */
     .service-list { list-style: disc; padding-left: 20px; }
     .service-list li { margin-bottom: 4px; }
-
-    /* awards */
     .awards-list { list-style: none; padding: 0; }
     .awards-list li {
       display: flex; justify-content: space-between; margin-bottom: 4px;
     }
     .award-year { color: #888; white-space: nowrap; margin-left: 12px; }
-
-    /* footer */
     footer { margin-top: 48px; color: #999; font-size: 12px; text-align: center; }
     footer p { margin-bottom: 2px; }
   </style>
 </head>
 <body>
 
-<!-- ======== TOP NAV BAR (like hkding) ======== -->
 <nav class="topbar">
   <div class="topbar-left"><a href="index.html">Haotong Luan</a>:~#</div>
   <div class="topbar-right">
@@ -99,7 +78,6 @@
 </nav>
 <hr class="topbar-divider">
 
-<!-- ======== HERO ======== -->
 <div class="hero">
   <div class="hero-photo-placeholder">HL</div>
   <div class="hero-info">
@@ -119,41 +97,34 @@
   </div>
 </div>
 
-<!-- ======== PUBLICATIONS ======== -->
 <section id="publications">
   <h2>selected publications</h2>
   <hr class="sec-rule">
-
   <div class="pub-item">
     <div class="pub-title">An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability</div>
     <div class="pub-authors"><strong>Haotong Luan</strong>, W. Zhang*, T. Yang*</div>
     <div class="pub-venue">RAAI 2025 (Online)</div>
   </div>
-
   <div class="pub-item">
     <div class="pub-title">GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation</div>
     <div class="pub-authors">H. Ding, <strong>Haotong Luan</strong>, T. Yang*, W. Zhang*</div>
     <div class="pub-venue">ICCMA 2025 (Online)</div>
   </div>
-
   <div class="pub-item">
     <div class="pub-title">An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping</div>
     <div class="pub-authors">Y. Chen, <strong>Haotong Luan</strong>, H. Ding, W. Zhang*</div>
     <div class="pub-venue">RAAI 2025 (Online)</div>
   </div>
-
   <div class="pub-item">
     <div class="pub-title">A Robot Hand with Strong Environmental Adaptability for Grasping, Scooping, and Lifting Based on a Hybrid Parallelogram Mechanism Design</div>
     <div class="pub-authors"><strong>Haotong Luan</strong>, W. Zhang*</div>
     <div class="pub-venue">IEEE IROS 2026 (Under review, first author)</div>
   </div>
-
   <div class="pub-item">
     <div class="pub-title">SP Hand: An Underactuated Gripper with Mode Switching for Adaptive Pinching and Scooping</div>
     <div class="pub-authors"><strong>Haotong Luan</strong>, W. Zhang*</div>
     <div class="pub-venue">IEEE IROS 2026 (Under review, first author)</div>
   </div>
-
   <div class="pub-item">
     <div class="pub-title">PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts</div>
     <div class="pub-authors">(co-author), <strong>Haotong Luan</strong></div>
@@ -161,41 +132,35 @@
   </div>
 </section>
 
-<!-- ======== NEWS ======== -->
 <section id="news">
   <h2>news</h2>
   <hr class="sec-rule">
   <ul class="news-list">
-    <li><span class="news-date">2026.04</span> &mdash; Three papers (two first-author) submitted to <strong>IEEE IROS 2026</strong> and currently under review.</li>
-    <li><span class="news-date">2026.01</span> &mdash; Selected as the <strong>youngest of only 9 undergraduates</strong> (among 70+ participants) for the Quantum &amp; AI Winter School jointly held by Shenzhen International Quantum Academy and <a href="https://www.slai.edu.cn" target="_blank">Shenzhen Loop Area Institute</a>.</li>
-    <li><span class="news-date">2025.11</span> &mdash; Three papers (one first-author on the DS Hand) published online in <strong>RAAI 2025 / ICCMA 2025</strong>.</li>
-    <li><span class="news-date">2025.09</span> &mdash; Joined <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">Shenzhen X-Institute</a> as a <strong>P-SRT</strong> student, advised by Prof. Wenzeng Zhang.</li>
-    <li><span class="news-date">2025.06</span> &mdash; Awarded the <strong>Crystal Prize</strong> for Scientific Innovation (only 10 across the whole university).</li>
+    <li><span class="news-date">2026.04</span> Three papers (two first-author) submitted to <strong>IEEE IROS 2026</strong> and currently under review.</li>
+    <li><span class="news-date">2026.01</span> Selected as the <strong>youngest of only 9 undergraduates</strong> (among 70+ participants) for the Quantum &amp; AI Winter School jointly held by Shenzhen International Quantum Academy and <a href="https://www.slai.edu.cn" target="_blank">Shenzhen Loop Area Institute</a>.</li>
+    <li><span class="news-date">2025.11</span> Three papers (one first-author on the DS Hand) published online in <strong>RAAI 2025 / ICCMA 2025</strong>.</li>
+    <li><span class="news-date">2025.09</span> Joined <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">Shenzhen X-Institute</a> as a <strong>P-SRT</strong> student, advised by Prof. Wenzeng Zhang.</li>
+    <li><span class="news-date">2025.06</span> Awarded the <strong>Crystal Prize</strong> for Scientific Innovation (only 10 across the whole university).</li>
   </ul>
 </section>
 
-<!-- ======== RESEARCH ======== -->
 <section>
   <h2>research</h2>
   <hr class="sec-rule">
   <h3>01 &middot; underactuated grippers</h3>
   <p>Linear-motion linkages, parallelogram mechanisms, and idle-stroke transmissions that embed grasping logic directly into the hardware, enabling reliable grasping with a single actuator.</p>
   <p class="tags">dual-parallelogram &middot; idle-stroke &middot; single-actuator</p>
-
   <h3>02 &middot; environment-adaptive hands</h3>
   <p>Hands that exploit contact with tables or walls to switch modes automatically, from pinching to scooping to lifting, robust to pose error and collision during manipulator operation.</p>
   <p class="tags">card scooping &middot; mode switching &middot; contact-triggered</p>
-
   <h3>03 &middot; mechanism design</h3>
   <p>Peaucellier and semi-Peaucellier linkages, slot-guided mechanisms, and hybrid parallelogram designs aimed at precise linear fingertip motion and posture-preserving grasping.</p>
   <p class="tags">Peaucellier &middot; slot-guided &middot; linear linkage</p>
-
   <h3>04 &middot; embodied intelligence (future)</h3>
   <p>Long-term interest in the intersection of mechanism design and embodied intelligence, coupling hardware-embedded logic with learning-based control for resource-constrained robotics.</p>
   <p class="tags">embodied AI &middot; hardware-software co-design</p>
 </section>
 
-<!-- ======== EDUCATION ======== -->
 <section>
   <h2>education</h2>
   <hr class="sec-rule">
@@ -203,14 +168,12 @@
   <p>B.Eng. in Automation, Future Technology School &middot; GPA 83.7/100</p>
   <p>Key courses: Python programming, analog/digital electronics, IoT control, engineering graphics (SolidWorks), probability &amp; statistics, linear algebra, calculus.</p>
   <p class="entry-meta">2024.09 &ndash; present</p>
-
   <h3><a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">Shenzhen X-Institute</a> &middot; P-SRT Program</h3>
   <p>Research direction: robotic hand and gripper design. Advisor: Associate Prof. Wenzeng Zhang.</p>
   <p>Track: X-idea &rarr; <strong>P-SRT (current)</strong> &rarr; E-SRT &rarr; ORIC &rarr; SURF. Founded under Shenzhen's educational reform initiative, inspired by Tsinghua's Tsien Excellence in Engineering Program.</p>
   <p class="entry-meta">2025.09 &ndash; present</p>
 </section>
 
-<!-- ======== EXPERIENCE ======== -->
 <section>
   <h2>experience</h2>
   <hr class="sec-rule">
@@ -218,17 +181,14 @@
   <p>Independently proposed the initial concept of a dual-slide adaptive gripper; conducted mechanism analysis and feasibility study, leading to long-term advising.</p>
   <p>Led a first-author gripper design (DS Hand, RAAI 2025); collaborated on idle-stroke gripper designs (RAAI 2025, ICCMA 2025).</p>
   <p class="entry-meta">2025.09 &ndash; present</p>
-
   <h3>Remote Research Assistant &middot; <a href="https://www.shlab.org.cn/" target="_blank">Shanghai AI Laboratory</a></h3>
   <p>Remote RA under Researcher Yuan Gao. Developing visual-servoing control algorithms for robotic-arm grasping, and designing the mechanical end-effector (gripper) mounted on the arm.</p>
   <p class="entry-meta">2026.04 &ndash; present (remote)</p>
-
   <h3>Quantum &amp; AI Winter School &middot; <a href="https://www.slai.edu.cn" target="_blank">Shenzhen Loop Area Institute</a></h3>
   <p>Studied generative-model-based quantum variational circuit simulation (MLP / LSTM / Transformer architectures) under Prof. Peng Zhang (Tianjin University). Worked on state fidelity optimization, mixed-state simulation, and physics-constrained training.</p>
   <p class="entry-meta">2026.01</p>
 </section>
 
-<!-- ======== SERVICE ======== -->
 <section>
   <h2>service &amp; leadership</h2>
   <hr class="sec-rule">
@@ -239,7 +199,6 @@
   </ul>
 </section>
 
-<!-- ======== SKILLS ======== -->
 <section>
   <h2>skills</h2>
   <hr class="sec-rule">
@@ -249,7 +208,6 @@
   <p><strong>Languages:</strong> Chinese (native); English (CET-4: 580, CET-6 taken; IELTS scheduled 2026.03).</p>
 </section>
 
-<!-- ======== AWARDS ======== -->
 <section>
   <h2>awards</h2>
   <hr class="sec-rule">
