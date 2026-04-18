@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Haotong Luan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Courier New', Courier, 'Liberation Mono', monospace;
+      font-size: 14px;
+      line-height: 1.75;
+      color: #222;
+      background: #fff;
+      padding: 48px 24px 60px;
+      max-width: 860px;
+      margin: 0 auto;
+      transition: background .3s, color .3s;
+    }
+
+    /* ---------- dark mode ---------- */
+    body.dark {
+      background: #1a1a2e;
+      color: #d4d4d4;
+    }
+    body.dark a { color: #6ec6ff; }
+    body.dark .sec-rule { border-color: #444; }
+    body.dark .contact-card { border-color: #444; }
+    body.dark footer { color: #777; }
+
+    a { color: #268bd2; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { font-weight: bold; }
+
+    /* ---------- topbar ---------- */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .topbar-left a { color: #268bd2; font-weight: bold; }
+    .topbar-right { display: flex; gap: 18px; }
+    .topbar-right a, .topbar-right button {
+      background: none; border: none; font: inherit;
+      color: inherit; cursor: pointer; padding: 0;
+    }
+    .topbar-right button:hover { text-decoration: underline; }
+
+    .prompt { margin-bottom: 2px; }
+
+    h1 { font-size: 22px; font-weight: bold; margin-top: 24px; }
+    h2 { font-size: 16px; font-weight: bold; margin-top: 36px; margin-bottom: 4px; }
+    .sec-rule {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin-bottom: 16px;
+    }
+
+    /* ---------- contact cards ---------- */
+    .contact-card {
+      border: 1px solid #ccc;
+      padding: 18px 22px;
+      margin-top: 16px;
+      line-height: 2;
+      transition: border-color .3s;
+    }
+    .contact-card p {
+      margin: 2px 0;
+    }
+    .contact-label {
+      display: inline-block;
+      min-width: 140px;
+      font-weight: bold;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 36px;
+    }
+
+    footer {
+      margin-top: 48px;
+      color: #999;
+      font-size: 12px;
+    }
+
+    /* ---------- language toggle ---------- */
+    .lang-zh { display: none; }
+    body.zh .lang-en { display: none; }
+    body.zh .lang-zh { display: block; }
+    /* inline spans */
+    span.lang-zh { display: none; }
+    body.zh span.lang-en { display: none; }
+    body.zh span.lang-zh { display: inline; }
+    span.lang-en { display: inline; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== topbar ===== -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="index.html">
+        <span class="lang-en">Haotong Luan</span>
+        <span class="lang-zh">栾皓童</span>
+      </a>:~#
+    </div>
+    <div class="topbar-right">
+      <a href="index.html">
+        <span class="lang-en">Home/</span>
+        <span class="lang-zh">首页/</span>
+      </a>
+      <button id="langBtn" onclick="toggleLang()">EN | 中</button>
+      <button id="themeBtn" onclick="toggleTheme()">☾</button>
+    </div>
+  </div>
+
+  <!-- ===== title ===== -->
+  <p class="prompt">&gt; cat contact.txt</p>
+
+  <h1 class="lang-en">Contact</h1>
+  <h1 class="lang-zh">联系方式</h1>
+  <p>===========</p>
+
+  <!-- ===== general contact ===== -->
+  <h2 class="lang-en">General</h2>
+  <h2 class="lang-zh">常规联系</h2>
+  <hr class="sec-rule">
+
+  <div class="contact-card">
+    <p>
+      <span class="contact-label">Email</span>
+      <a href="mailto:lht20060306@outlook.com">lht20060306@outlook.com</a>
+    </p>
+    <p>
+      <span class="contact-label">GitHub</span>
+      <a href="https://github.com/HaotongLuan" target="_blank">github.com/HaotongLuan</a>
+    </p>
+    <p>
+      <span class="contact-label">Google Scholar</span>
+      <a href="https://scholar.google.com/citations?user=695sZWgAAAAJ&hl=en&authuser=1" target="_blank">
+        <span class="lang-en">Haotong Luan</span>
+        <span class="lang-zh">栾皓童</span>
+      </a>
+    </p>
+    <p>
+      <span class="contact-label">
+        <span class="lang-en">Phone</span>
+        <span class="lang-zh">电话</span>
+      </span>
+      <a href="tel:+8618653336550">+86 18653336550</a>
+    </p>
+    <p>
+      <span class="contact-label">WeChat</span>
+      18653336550
+    </p>
+  </div>
+
+  <!-- ===== research contact ===== -->
+  <h2 class="lang-en">Research Contact</h2>
+  <h2 class="lang-zh">科研合作联系</h2>
+  <hr class="sec-rule">
+
+  <div class="contact-card">
+    <p class="lang-en">
+      I am always open to discussions on <strong>underactuated gripper design</strong>,
+      <strong>environment-adaptive robotic hands</strong>, and <strong>mechanism design</strong>.
+      If you are interested in collaboration or have questions about my published work,
+      feel free to reach out via email.
+    </p>
+    <p class="lang-zh">
+      我始终欢迎关于<strong>欠驱动夹爪设计</strong>、<strong>环境自适应机械手</strong>和<strong>机构设计</strong>方面的交流与讨论。
+      如果您对合作有兴趣，或对我已发表的工作有任何疑问，欢迎通过邮件联系。
+    </p>
+    <p style="margin-top:10px;">
+      <span class="contact-label">
+        <span class="lang-en">Advisor</span>
+        <span class="lang-zh">导师</span>
+      </span>
+      <span class="lang-en">Assoc. Prof. </span>
+      <a href="https://scholar.google.com/citations?user=n-3doEMAAAAJ&hl=zh-CN" target="_blank">
+        <span class="lang-en">Wenzeng Zhang</span>
+        <span class="lang-zh">张文增 副教授</span>
+      </a>
+      <span class="lang-en"> (Shenzhen X-Institute)</span>
+      <span class="lang-zh">（深圳 X-Institute）</span>
+    </p>
+    <p>
+      <span class="contact-label">
+        <span class="lang-en">Collaborator</span>
+        <span class="lang-zh">合作者</span>
+      </span>
+      <span class="lang-en">Researcher </span>
+      <a href="https://www.shlab.org.cn/" target="_blank">
+        <span class="lang-en">Yuan Gao</span>
+        <span class="lang-zh">高远 研究员</span>
+      </a>
+      <span class="lang-en"> (Shanghai AI Laboratory)</span>
+      <span class="lang-zh">（上海人工智能实验室）</span>
+    </p>
+  </div>
+
+  <!-- ===== back ===== -->
+  <a class="back-link" href="index.html">
+    <span class="lang-en">&lt; back to home</span>
+    <span class="lang-zh">&lt; 返回首页</span>
+  </a>
+
+  <!-- ===== footer ===== -->
+  <footer>
+    <p class="lang-en">&copy; 2025-2026 Haotong Luan &middot; Last updated 2026-04-18</p>
+    <p class="lang-zh">&copy; 2025-2026 栾皓童 &middot; 最后更新 2026-04-18</p>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    /* --- theme --- */
+    function applyTheme(dark) {
+      document.body.classList.toggle('dark', dark);
+      document.getElementById('themeBtn').textContent = dark ? '☀' : '☾';
+    }
+    function toggleTheme() {
+      const dark = !document.body.classList.contains('dark');
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      applyTheme(dark);
+    }
+
+    /* --- language --- */
+    function applyLang(zh) {
+      document.body.classList.toggle('zh', zh);
+      document.documentElement.lang = zh ? 'zh' : 'en';
+    }
+    function toggleLang() {
+      const zh = !document.body.classList.contains('zh');
+      localStorage.setItem('lang', zh ? 'zh' : 'en');
+      applyLang(zh);
+    }
+
+    /* --- init --- */
+    (function () {
+      // theme
+      const saved = localStorage.getItem('theme');
+      if (saved) { applyTheme(saved === 'dark'); }
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) { applyTheme(true); }
+
+      // lang
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang) { applyLang(savedLang === 'zh'); }
+      else if (navigator.language && navigator.language.startsWith('zh')) { applyLang(true); }
+    })();
+  </script>
+
+</body>
+</html>
