@@ -1,87 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haotong Luan</title>
+  <title>Haotong Luan | 栾皓童</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:#fff; --text:#222; --text-sub:#555; --text-muted:#888;
+      --text-dim:#999; --link:#268bd2; --border:#ddd; --border-strong:#222;
+      --topbar-border:#ccc; --photo-bg:#e8e8e8; --photo-color:#aaa; --authors:#444;
+    }
+    [data-theme="dark"] {
+      --bg:#1a1a2e; --text:#d8d8d8; --text-sub:#aaa; --text-muted:#777;
+      --text-dim:#666; --link:#5dade2; --border:#333; --border-strong:#d8d8d8;
+      --topbar-border:#444; --photo-bg:#2a2a3e; --photo-color:#555; --authors:#aaa;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     body {
-      font-family: 'Courier New', Courier, 'Liberation Mono', monospace;
-      font-size: 14px; line-height: 1.75; color: #222; background: #fff;
-      padding: 48px 24px 60px; max-width: 1100px; margin: 0 auto;
+      font-family:'Courier New',Courier,'Liberation Mono',monospace;
+      font-size:14px; line-height:1.75; color:var(--text); background:var(--bg);
+      padding:48px 24px 60px; max-width:1100px; margin:0 auto;
+      transition:background .3s, color .3s;
     }
-    a { color: #268bd2; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    strong { font-weight: bold; }
+    a { color:var(--link); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    strong { font-weight:bold; }
+
+    /* language toggle */
+    html[lang="en"] .cn { display:none !important; }
+    html[lang="zh"] .en { display:none !important; }
+
     .topbar {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 8px;
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:8px; flex-wrap:wrap; gap:6px;
     }
-    .topbar-left a { color: #268bd2; font-weight: bold; }
-    .topbar-right { display: flex; gap: 18px; }
-    .topbar-right a { color: #268bd2; }
-    .topbar-divider {
-      border: none; border-top: 1.5px dashed #ccc; margin-bottom: 36px;
+    .topbar-left a { color:var(--link); font-weight:bold; }
+    .topbar-right { display:flex; gap:16px; align-items:center; }
+    .topbar-right a { color:var(--link); }
+    .tbtn {
+      cursor:pointer; user-select:none; color:var(--link);
+      background:none; border:none; font-family:inherit; font-size:inherit; padding:0;
     }
-    .hero { display: flex; gap: 28px; align-items: flex-start; margin-bottom: 40px; }
+    .tbtn:hover { text-decoration:underline; }
+    .topbar-divider { border:none; border-top:1.5px dashed var(--topbar-border); margin-bottom:36px; }
+
+    .hero { display:flex; gap:28px; align-items:flex-start; margin-bottom:40px; flex-wrap:wrap; }
     .hero-photo-placeholder {
-      width: 150px; height: 180px; border-radius: 4px; background: #e8e8e8;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 36px; color: #aaa; flex-shrink: 0;
+      width:150px; height:180px; border-radius:4px; background:var(--photo-bg);
+      display:flex; align-items:center; justify-content:center;
+      font-size:36px; color:var(--photo-color); flex-shrink:0;
     }
-    .hero-info { flex: 1; }
-    .hero-info h1 { font-size: 22px; font-weight: bold; margin-bottom: 2px; }
-    .hero-info .underline { border: none; border-top: 1.5px solid #222; margin: 4px 0 10px; }
-    .hero-info .subtitle { color: #555; margin-bottom: 12px; }
-    .hero-info p { margin-bottom: 8px; }
-    .hero-links { margin-top: 10px; }
-    .hero-links a { margin-right: 10px; }
-    .focus-line { color: #888; margin-top: 8px; font-size: 13px; }
-    section { margin-bottom: 36px; }
-    section h2 {
-      font-size: 15px; font-weight: bold; text-transform: lowercase;
-      margin-bottom: 4px;
-    }
-    section .sec-rule { border: none; border-top: 1px solid #ddd; margin-bottom: 16px; }
-    section h3 { font-size: 14px; font-weight: bold; margin: 18px 0 4px; }
-    .pub-item { margin-bottom: 16px; }
-    .pub-title { font-weight: bold; }
-    .pub-authors { color: #444; }
-    .pub-venue { color: #268bd2; font-style: italic; }
-    .news-list { list-style: none; padding: 0; }
-    .news-list li { margin-bottom: 6px; }
-    .news-date { font-weight: bold; margin-right: 6px; }
-    .tags { color: #888; font-size: 13px; margin-top: 2px; }
-    .entry-meta { color: #888; font-size: 13px; margin-top: 2px; }
-    .service-list { list-style: disc; padding-left: 20px; }
-    .service-list li { margin-bottom: 4px; }
-    .awards-list { list-style: none; padding: 0; }
-    .awards-list li {
-      display: flex; justify-content: space-between; margin-bottom: 4px;
-    }
-    .award-year { color: #888; white-space: nowrap; margin-left: 12px; }
-    footer { margin-top: 48px; color: #999; font-size: 12px; text-align: center; }
-    footer p { margin-bottom: 2px; }
+    .hero-info { flex:1; min-width:280px; }
+    .hero-info h1 { font-size:22px; font-weight:bold; margin-bottom:2px; }
+    .hero-info .underline { border:none; border-top:1.5px solid var(--border-strong); margin:4px 0 10px; }
+    .hero-info .subtitle { color:var(--text-sub); margin-bottom:12px; }
+    .hero-info p { margin-bottom:8px; }
+    .hero-links { margin-top:10px; }
+    .hero-links a { margin-right:10px; }
+    .focus-line { color:var(--text-muted); margin-top:8px; font-size:13px; }
+
+    section { margin-bottom:36px; }
+    section h2 { font-size:15px; font-weight:bold; margin-bottom:4px; }
+    section .sec-rule { border:none; border-top:1px solid var(--border); margin-bottom:16px; }
+    section h3 { font-size:14px; font-weight:bold; margin:18px 0 4px; }
+    .pub-item { margin-bottom:16px; }
+    .pub-title { font-weight:bold; }
+    .pub-authors { color:var(--authors); }
+    .pub-venue { color:var(--link); font-style:italic; }
+    .news-list { list-style:none; padding:0; }
+    .news-list li { margin-bottom:6px; }
+    .news-date { font-weight:bold; margin-right:6px; }
+    .tags { color:var(--text-muted); font-size:13px; margin-top:2px; }
+    .entry-meta { color:var(--text-muted); font-size:13px; margin-top:2px; }
+    .service-list { list-style:disc; padding-left:20px; }
+    .service-list li { margin-bottom:4px; }
+    .awards-list { list-style:none; padding:0; }
+    .awards-list li { display:flex; justify-content:space-between; margin-bottom:4px; }
+    .award-year { color:var(--text-muted); white-space:nowrap; margin-left:12px; }
+    .globe-section { text-align:center; margin:40px 0 20px; }
+    footer { margin-top:48px; color:var(--text-dim); font-size:12px; text-align:center; }
+    footer p { margin-bottom:2px; }
   </style>
 </head>
 <body>
 
+<!-- ===== TOPBAR ===== -->
 <nav class="topbar">
-  <div class="topbar-left"><a href="index.html">Haotong Luan</a>:~#</div>
+  <div class="topbar-left">
+    <a href="index.html" class="en">Haotong Luan</a><a href="index.html" class="cn">栾皓童</a>:~#
+  </div>
   <div class="topbar-right">
-    <a href="#publications">Publications/</a>
-    <a href="contact.html">Contact/</a>
-    <a href="https://scholar.google.com/citations?user=695sZWgAAAAJ&hl=en&authuser=1" target="_blank">Scholar/</a>
-    <span>&#9790;</span>
+    <a href="#publications" class="en">Publications/</a><a href="#publications" class="cn">论文/</a>
+    <a href="mailto:lht20060306@outlook.com" class="en">Contact/</a><a href="mailto:lht20060306@outlook.com" class="cn">联系/</a>
+    <a href="https://scholar.google.com/citations?user=695sZWgAAAAJ&hl=en&authuser=1" target="_blank" class="en">Scholar/</a>
+    <a href="https://scholar.google.com/citations?user=695sZWgAAAAJ&hl=en&authuser=1" target="_blank" class="cn">学术/</a>
+    <button class="tbtn" onclick="toggleLang()" id="langBtn">EN | 中</button>
+    <button class="tbtn" onclick="toggleTheme()" id="themeBtn">&#9790;</button>
   </div>
 </nav>
 <hr class="topbar-divider">
 
-<div class="hero">
+<!-- ===== HERO EN ===== -->
+<div class="hero en">
   <div class="hero-photo-placeholder">HL</div>
   <div class="hero-info">
-    <p style="color:#888; margin-bottom:2px;">Hi!</p>
+    <p style="color:var(--text-muted);margin-bottom:2px;">Hi!</p>
     <h1>Haotong Luan</h1>
     <hr class="underline">
     <p class="subtitle">Undergraduate researcher in robotics</p>
@@ -97,7 +120,28 @@
   </div>
 </div>
 
-<section id="publications">
+<!-- ===== HERO CN ===== -->
+<div class="hero cn">
+  <div class="hero-photo-placeholder">HL</div>
+  <div class="hero-info">
+    <p style="color:var(--text-muted);margin-bottom:2px;">你好！</p>
+    <h1>栾皓童</h1>
+    <hr class="underline">
+    <p class="subtitle">机器人方向本科研究者</p>
+    <p>我是栾皓童，<strong>深圳技术大学</strong>未来技术学院本科生，<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank"><strong>深圳 X-Institute</strong></a> P-SRT 学员。</p>
+    <p>师从 <a href="https://scholar.google.com/citations?user=n-3doEMAAAAJ&hl=zh-CN" target="_blank">张文增</a> 副教授，从事欠驱动机械手研究；目前与上海人工智能实验室 <a href="https://www.shlab.org.cn/" target="_blank">高远</a> 研究员合作，研究机械臂抓取中的视觉伺服控制算法与末端执行器设计。</p>
+    <p>研究方向：<strong>环境自适应机械手与机构设计</strong>，具体包括直线运动连杆、平行四边形机构、欠驱动与腱驱动夹爪、扒卡式手、抓取-提升机构、空行程传动等。</p>
+    <div class="hero-links">
+      <a href="mailto:lht20060306@outlook.com">邮箱</a> /
+      <a href="https://github.com/HaotongLuan" target="_blank">GitHub</a> /
+      <a href="tel:+8618653336550">电话</a>
+    </div>
+    <p class="focus-line">&gt; 方向：欠驱动夹爪 / 环境自适应抓取 / 机构设计</p>
+  </div>
+</div>
+
+<!-- ===== PUBLICATIONS EN ===== -->
+<section id="publications" class="en">
   <h2>selected publications</h2>
   <hr class="sec-rule">
   <div class="pub-item">
@@ -132,7 +176,44 @@
   </div>
 </section>
 
-<section id="news">
+<!-- ===== PUBLICATIONS CN ===== -->
+<section class="cn">
+  <h2>代表论文</h2>
+  <hr class="sec-rule">
+  <div class="pub-item">
+    <div class="pub-title">An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability</div>
+    <div class="pub-authors"><strong>栾皓童</strong>, 张文增*, 杨彤*</div>
+    <div class="pub-venue">RAAI 2025（已线上发表）. <a href="https://ieeexplore.ieee.org/abstract/document/11423404" target="_blank">[doi]</a></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-title">GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation</div>
+    <div class="pub-authors">丁浩, <strong>栾皓童</strong>, 杨彤*, 张文增*</div>
+    <div class="pub-venue">ICCMA 2025（已线上发表）. <a href="https://ieeexplore.ieee.org/abstract/document/11369602" target="_blank">[doi]</a></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-title">An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping</div>
+    <div class="pub-authors">陈禹, <strong>栾皓童</strong>, 丁浩, 张文增*</div>
+    <div class="pub-venue">RAAI 2025（已线上发表）. <a href="https://ieeexplore.ieee.org/abstract/document/11423397" target="_blank">[doi]</a></div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-title">A Robot Hand with Strong Environmental Adaptability for Grasping, Scooping, and Lifting Based on a Hybrid Parallelogram Mechanism Design</div>
+    <div class="pub-authors"><strong>栾皓童</strong>, 张文增*</div>
+    <div class="pub-venue">IEEE IROS 2026（在审，第一作者）</div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-title">SP Hand: An Underactuated Gripper with Mode Switching for Adaptive Pinching and Scooping</div>
+    <div class="pub-authors"><strong>栾皓童</strong>, 张文增*</div>
+    <div class="pub-venue">IEEE IROS 2026（在审，第一作者）</div>
+  </div>
+  <div class="pub-item">
+    <div class="pub-title">PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts</div>
+    <div class="pub-authors">（合作者）, <strong>栾皓童</strong></div>
+    <div class="pub-venue">IEEE IROS 2026（在审）</div>
+  </div>
+</section>
+
+<!-- ===== NEWS EN ===== -->
+<section id="news" class="en">
   <h2>news</h2>
   <hr class="sec-rule">
   <ul class="news-list">
@@ -144,7 +225,21 @@
   </ul>
 </section>
 
-<section>
+<!-- ===== NEWS CN ===== -->
+<section class="cn">
+  <h2>动态</h2>
+  <hr class="sec-rule">
+  <ul class="news-list">
+    <li><span class="news-date">2026.04</span> 共三篇论文（两篇一作）投稿至 <strong>IEEE IROS 2026</strong>，目前均在审。</li>
+    <li><span class="news-date">2026.01</span> 作为 70+ 参与者中仅有的 <strong>9 名本科生之一（且最年轻）</strong>，入选由深圳国际量子研究院与<a href="https://www.slai.edu.cn" target="_blank">深圳河套量子研究院</a>联合举办的量子 &amp; AI 冬令营。</li>
+    <li><span class="news-date">2025.11</span> 三篇论文（其中 DS Hand 一篇一作）在 <strong>RAAI 2025 / ICCMA 2025</strong> 线上发表。</li>
+    <li><span class="news-date">2025.09</span> 加入<a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">深圳 X-Institute</a>，成为 <strong>P-SRT</strong> 学员，师从张文增教授。</li>
+    <li><span class="news-date">2025.06</span> 荣获水晶奖学金（科技创新，全校仅 10 人）。</li>
+  </ul>
+</section>
+
+<!-- ===== RESEARCH EN ===== -->
+<section class="en">
   <h2>research</h2>
   <hr class="sec-rule">
   <h3>01 &middot; underactuated grippers</h3>
@@ -161,7 +256,26 @@
   <p class="tags">embodied AI &middot; hardware-software co-design</p>
 </section>
 
-<section>
+<!-- ===== RESEARCH CN ===== -->
+<section class="cn">
+  <h2>研究方向</h2>
+  <hr class="sec-rule">
+  <h3>01 &middot; 欠驱动夹爪</h3>
+  <p>通过直线运动连杆、平行四边形机构、空行程传动等，将抓取逻辑直接嵌入硬件，实现单电机驱动下的可靠抓取。</p>
+  <p class="tags">双平行四边形 &middot; 空行程 &middot; 单驱动</p>
+  <h3>02 &middot; 环境自适应机械手</h3>
+  <p>利用与桌面或墙面的接触自动切换模式，从捏取到扒取再到提升，对操作臂的位姿误差和碰撞具有很强鲁棒性。</p>
+  <p class="tags">扒卡 &middot; 模式切换 &middot; 接触触发</p>
+  <h3>03 &middot; 机构设计</h3>
+  <p>Peaucellier 与半 Peaucellier 连杆、槽导式机构、混合平行四边形设计，用于指尖精确直线运动与保持姿态的抓取。</p>
+  <p class="tags">Peaucellier &middot; 槽导 &middot; 直线连杆</p>
+  <h3>04 &middot; 具身智能（未来方向）</h3>
+  <p>长期关注机构设计与具身智能的交叉，将硬件嵌入式逻辑与基于学习的控制相结合，面向资源受限的机器人系统。</p>
+  <p class="tags">具身 AI &middot; 软硬协同</p>
+</section>
+
+<!-- ===== EDUCATION EN ===== -->
+<section class="en">
   <h2>education</h2>
   <hr class="sec-rule">
   <h3>Shenzhen Technology University</h3>
@@ -174,7 +288,22 @@
   <p class="entry-meta">2025.09 &ndash; present</p>
 </section>
 
-<section>
+<!-- ===== EDUCATION CN ===== -->
+<section class="cn">
+  <h2>教育经历</h2>
+  <hr class="sec-rule">
+  <h3>深圳技术大学</h3>
+  <p>自动化（工学学士），未来技术学院 &middot; GPA 83.7/100</p>
+  <p>主修课程：Python 程序设计、模拟/数字电子、物联网控制、工程制图（SolidWorks）、概率论与数理统计、线性代数、微积分。</p>
+  <p class="entry-meta">2024.09 &ndash; 至今</p>
+  <h3><a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">深圳 X-Institute</a> &middot; P-SRT 项目</h3>
+  <p>研究方向：机械手与夹爪设计。导师：张文增 副教授。</p>
+  <p>培养路径：X-idea &rarr; <strong>P-SRT（当前）</strong> &rarr; E-SRT &rarr; ORIC &rarr; SURF。该项目由深圳教育改革计划设立，参考清华大学"钱学森力学班"模式。</p>
+  <p class="entry-meta">2025.09 &ndash; 至今</p>
+</section>
+
+<!-- ===== EXPERIENCE EN ===== -->
+<section class="en">
   <h2>experience</h2>
   <hr class="sec-rule">
   <h3>P-SRT Researcher &middot; <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">Shenzhen X-Institute</a></h3>
@@ -189,17 +318,46 @@
   <p class="entry-meta">2026.01</p>
 </section>
 
-<section>
+<!-- ===== EXPERIENCE CN ===== -->
+<section class="cn">
+  <h2>科研与工作经历</h2>
+  <hr class="sec-rule">
+  <h3>P-SRT 研究者 &middot; <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">深圳 X-Institute</a></h3>
+  <p>独立提出双滑块自适应夹爪的最初构想；完成机构分析与可行性研究，获得导师长期指导。</p>
+  <p>主导一项一作夹爪设计（DS Hand，RAAI 2025）；合作参与空行程夹爪设计（RAAI 2025、ICCMA 2025）。</p>
+  <p class="entry-meta">2025.09 &ndash; 至今</p>
+  <h3>远程研究助理 &middot; <a href="https://www.shlab.org.cn/" target="_blank">上海人工智能实验室</a></h3>
+  <p>在高远研究员指导下担任远程 RA，研究机械臂抓取中的视觉伺服控制算法，并负责臂端夹爪的机械设计。</p>
+  <p class="entry-meta">2026.04 &ndash; 至今（远程）</p>
+  <h3>量子 &amp; AI 冬令营 &middot; <a href="https://www.slai.edu.cn" target="_blank">深圳河套研究院</a></h3>
+  <p>在天津大学张鹏教授指导下，研究基于生成模型（MLP / LSTM / Transformer）的量子变分线路模拟，内容涵盖态保真度优化、混合态模拟与物理约束训练。</p>
+  <p class="entry-meta">2026.01</p>
+</section>
+
+<!-- ===== SERVICE EN ===== -->
+<section class="en">
   <h2>service &amp; leadership</h2>
   <hr class="sec-rule">
   <ul class="service-list">
     <li>Head of Organization Department, Future Technology School, SZTU (2024.12 &ndash; present).</li>
     <li>Class Monitor &amp; Youth League Secretary (2024.09 &ndash; 2025.10).</li>
-    <li>Deputy Team Leader, 15th "Challenge Cup" Student Entrepreneurship Competition (2025) &mdash; awarded Excellence Prize at the university round.</li>
+    <li>Deputy Team Leader, 15th "Challenge Cup" Student Entrepreneurship Competition (2025), awarded Excellence Prize at the university round.</li>
   </ul>
 </section>
 
-<section>
+<!-- ===== SERVICE CN ===== -->
+<section class="cn">
+  <h2>社会工作与领导经历</h2>
+  <hr class="sec-rule">
+  <ul class="service-list">
+    <li>深圳技术大学未来技术学院 组织部部长（2024.12 &ndash; 至今）。</li>
+    <li>班长 &amp; 团支书（2024.09 &ndash; 2025.10）。</li>
+    <li>第十五届"挑战杯"大学生创业计划竞赛（2025）副队长，校赛荣获优秀奖。</li>
+  </ul>
+</section>
+
+<!-- ===== SKILLS EN ===== -->
+<section class="en">
   <h2>skills</h2>
   <hr class="sec-rule">
   <p><strong>Mechanism design &amp; prototyping:</strong> parallel-jaw coupled grippers, linear linkages, parallelogram linkages, underactuated &amp; tendon-driven hands; SolidWorks (modeling / assembly / kinematic simulation); Bambu Lab 3D printing; rapid iteration, failure analysis, grasping experiment design.</p>
@@ -208,7 +366,18 @@
   <p><strong>Languages:</strong> Chinese (native); English (CET-4: 580, CET-6 taken; IELTS scheduled 2026.03).</p>
 </section>
 
-<section>
+<!-- ===== SKILLS CN ===== -->
+<section class="cn">
+  <h2>技能</h2>
+  <hr class="sec-rule">
+  <p><strong>机构设计与样机制作：</strong>平夹耦合夹爪、直线连杆、平行四边形连杆、欠驱动与腱驱动机械手；SolidWorks（建模 / 装配 / 运动学仿真）；拓竹 3D 打印；快速迭代、失效分析、抓取实验设计。</p>
+  <p><strong>学术写作：</strong>IEEE 期刊与会议格式；熟悉完整投稿流程；善用 AI 辅助文献综述。</p>
+  <p><strong>编程：</strong>Python；有基础的深度学习框架使用经验，应用于点云与量子线路仿真。</p>
+  <p><strong>语言：</strong>中文（母语）；英语（CET-4: 580，已参加 CET-6；IELTS 预定 2026.03）。</p>
+</section>
+
+<!-- ===== AWARDS EN ===== -->
+<section class="en">
   <h2>awards</h2>
   <hr class="sec-rule">
   <h3>selected honors</h3>
@@ -220,10 +389,66 @@
   </ul>
 </section>
 
+<!-- ===== AWARDS CN ===== -->
+<section class="cn">
+  <h2>获奖</h2>
+  <hr class="sec-rule">
+  <h3>主要荣誉</h3>
+  <ul class="awards-list">
+    <li><span>正雄未来人才特别奖学金（深圳技术大学未来技术学院）</span><span class="award-year">2024-2025</span></li>
+    <li><span>水晶奖学金（科技创新，全校前 10）</span><span class="award-year">2025</span></li>
+    <li><span>深圳技术大学 优秀学生干部</span><span class="award-year">2024, 2025</span></li>
+    <li><span>第十五届"挑战杯"大学生创业计划竞赛校赛 优秀奖</span><span class="award-year">2025</span></li>
+  </ul>
+</section>
+
+<!-- ===== VISITOR GLOBE ===== -->
+<section class="globe-section">
+  <h2 class="en">visitors</h2>
+  <h2 class="cn">访客地图</h2>
+  <hr class="sec-rule">
+  <!--
+    把下面这行替换成你自己的 ClustrMaps 嵌入代码。
+    前往 https://clustrmaps.com/bl 免费注册，获取你的地球仪小组件。
+  -->
+  <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=HWuicbWj_tdV9OuzU0jbsDOaE5fzPHbiPzjoiX5BFVE"></script>
+    src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=YOUR_ID_HERE&co=2d78ad&cmo=3acc3a&cmn=ff5353">
+  </script>
+</section>
+
+<!-- ===== FOOTER ===== -->
 <footer>
-  <p>&copy; 2025-2026 Haotong Luan &middot; Last updated 2026-04-18</p>
-  <p>Inspired by the visual style of <a href="https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank">hugo-theme-console</a>.</p>
+  <p class="en">&copy; 2025-2026 Haotong Luan &middot; Last updated 2026-04-18</p>
+  <p class="cn">&copy; 2025-2026 栾皓童 &middot; 最后更新 2026-04-18</p>
+  <p class="en">Inspired by the visual style of <a href="https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank">hugo-theme-console</a>.</p>
+  <p class="cn">视觉风格参考自 <a href="https://github.com/mrmierzejewski/hugo-theme-console/" target="_blank">hugo-theme-console</a>.</p>
 </footer>
+
+<!-- ===== JS ===== -->
+<script>
+function toggleTheme(){
+  var h=document.documentElement, c=h.getAttribute('data-theme'),
+      n=c==='dark'?'light':'dark';
+  h.setAttribute('data-theme',n);
+  document.getElementById('themeBtn').innerHTML=n==='dark'?'&#9788;':'&#9790;';
+  localStorage.setItem('theme',n);
+}
+function toggleLang(){
+  var h=document.documentElement, c=h.getAttribute('lang'),
+      n=c==='en'?'zh':'en';
+  h.setAttribute('lang',n);
+  document.getElementById('langBtn').textContent=n==='en'?'EN | 中':'中 | EN';
+  localStorage.setItem('lang',n);
+}
+(function(){
+  var t=localStorage.getItem('theme');
+  if(t){document.documentElement.setAttribute('data-theme',t);
+    if(t==='dark')document.getElementById('themeBtn').innerHTML='&#9788;';}
+  var l=localStorage.getItem('lang');
+  if(l){document.documentElement.setAttribute('lang',l);
+    if(l==='zh')document.getElementById('langBtn').textContent='中 | EN';}
+})();
+</script>
 
 </body>
 </html>
