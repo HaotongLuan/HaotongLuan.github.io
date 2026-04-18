@@ -42,11 +42,27 @@
     .tbtn:hover { text-decoration:underline; }
     .topbar-divider { border:none; border-top:1.5px dashed var(--topbar-border); margin-bottom:36px; }
     .hero { display:flex; gap:28px; align-items:flex-start; margin-bottom:40px; flex-wrap:wrap; }
-    .hero-photo-placeholder {
-      width:150px; height:180px; border-radius:4px; background:var(--photo-bg);
-      display:flex; align-items:center; justify-content:center;
-      font-size:36px; color:var(--photo-color); flex-shrink:0;
+
+    /* ===== 头像悬停切换 ===== */
+    .hero-photo {
+      position:relative; width:150px; height:180px; border-radius:4px;
+      overflow:hidden; flex-shrink:0; cursor:pointer;
     }
+    .hero-photo img {
+      width:100%; height:100%; object-fit:cover;
+      position:absolute; top:0; left:0;
+      transition: opacity 0.4s ease;
+    }
+    .hero-photo .photo-real {
+      opacity:0;
+    }
+    .hero-photo:hover .photo-real {
+      opacity:1;
+    }
+    .hero-photo:hover .photo-ghibli {
+      opacity:0;
+    }
+
     .hero-info { flex:1; min-width:280px; }
     .hero-info h1 { font-size:32px; font-weight:bold; margin-bottom:2px; }
     .hero-info .underline { border:none; border-top:1.5px solid var(--border-strong); margin:4px 0 10px; }
@@ -77,22 +93,17 @@
     footer { margin-top:48px; color:var(--text-dim); font-size:13px; text-align:center; }
     footer p { margin-bottom:2px; }
 
-    /* ===== LOGO ENTRY LAYOUT ===== */
+    /* ===== 校徽行 ===== */
     .entry-row {
-      display:flex; align-items:flex-start; gap:16px; margin-top:18px;
+      display:flex; gap:16px; align-items:flex-start; margin-bottom:8px;
     }
-    .entry-row .entry-logos {
-      display:flex; flex-direction:column; gap:6px; flex-shrink:0; margin-top:2px;
+    .entry-logos {
+      display:flex; flex-direction:column; gap:6px; flex-shrink:0; padding-top:4px;
     }
-    .entry-row .entry-logos img {
+    .entry-logos img {
       width:52px; height:52px; object-fit:contain;
     }
-    .entry-row .entry-content {
-      flex:1; min-width:0;
-    }
-    .entry-row .entry-content h3 {
-      margin-top:0;
-    }
+    .entry-content { flex:1; }
   </style>
 </head>
 <body>
@@ -114,7 +125,10 @@
 
 <!-- ===== HERO EN ===== -->
 <div class="hero en">
-  <div class="hero-photo-placeholder">HL</div>
+  <div class="hero-photo">
+    <img src="吉卜力头像.jpg" alt="Haotong Luan - Ghibli style" class="photo-ghibli">
+    <img src="栾皓童.png" alt="Haotong Luan" class="photo-real">
+  </div>
   <div class="hero-info">
     <p style="color:var(--text-muted);margin-bottom:2px;">Hi!</p>
     <h1>Haotong Luan</h1>
@@ -124,7 +138,7 @@
     <p>I work under the supervision of Prof. <a href="https://scholar.google.com/citations?user=n-3doEMAAAAJ&hl=zh-CN" target="_blank">Wenzeng Zhang</a> and am currently collaborating with Researcher <a href="高远简历.pdf" target="_blank">Yuan Gao</a> (<a href="https://www.shlab.org.cn/" target="_blank">Shanghai AI Laboratory</a>) on visual-servoing control algorithms and end-effector design for robotic-arm grasping.</p>
     <p>My work focuses on <strong>environment-adaptive robotic hands and mechanism design</strong>: linear-motion linkages, parallelogram mechanisms, underactuated and tendon-driven grippers, card-scooping hands, grasp-and-lift mechanisms, and idle-stroke transmissions.</p>
     <div class="hero-links">
-      <a href=contact.html>Contact</a>
+      <a href="contact.html">Contact</a>
     </div>
     <p class="focus-line">&gt; focus: underactuated grippers / environment-adaptive grasping / mechanism design</p>
   </div>
@@ -132,7 +146,10 @@
 
 <!-- ===== HERO CN ===== -->
 <div class="hero cn">
-  <div class="hero-photo-placeholder">HL</div>
+  <div class="hero-photo">
+    <img src="吉卜力头像.jpg" alt="栾皓童 - 吉卜力风格" class="photo-ghibli">
+    <img src="栾皓童.png" alt="栾皓童" class="photo-real">
+  </div>
   <div class="hero-info">
     <p style="color:var(--text-muted);margin-bottom:2px;">你好！</p>
     <h1>栾皓童</h1>
@@ -324,9 +341,7 @@
   <hr class="sec-rule">
 
   <div class="entry-row">
-    <div class="entry-logos">
-      <img src="深技大.png" alt="SZTU">
-    </div>
+    <div class="entry-logos"><img src="深技大.png" alt="SZTU"></div>
     <div class="entry-content">
       <h3>Shenzhen Technology University</h3>
       <p>B.Eng. in Automation, Future Technology School &middot; GPA 83.7/100</p>
@@ -347,7 +362,6 @@
       <p class="entry-meta">2025.09 &ndash; present</p>
     </div>
   </div>
-
 </section>
 
 <!-- ===== EDUCATION CN ===== -->
@@ -356,9 +370,7 @@
   <hr class="sec-rule">
 
   <div class="entry-row">
-    <div class="entry-logos">
-      <img src="深技大.png" alt="深技大">
-    </div>
+    <div class="entry-logos"><img src="深技大.png" alt="深技大"></div>
     <div class="entry-content">
       <h3>深圳技术大学</h3>
       <p>自动化（工学学士），未来技术学院 &middot; GPA 83.7/100</p>
@@ -370,7 +382,7 @@
   <div class="entry-row">
     <div class="entry-logos">
       <img src="清华.png" alt="清华">
-      <img src="零一.png" alt="零一">
+      <img src="零一.png" alt="X-Institute">
     </div>
     <div class="entry-content">
       <h3><a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">深圳 X-Institute</a> &middot; P-SRT 项目</h3>
@@ -379,7 +391,6 @@
       <p class="entry-meta">2025.09 &ndash; 至今</p>
     </div>
   </div>
-
 </section>
 
 <!-- ===== EXPERIENCE EN ===== -->
@@ -401,9 +412,7 @@
   </div>
 
   <div class="entry-row">
-    <div class="entry-logos">
-      <img src="ai lab.png" alt="Shanghai AI Lab">
-    </div>
+    <div class="entry-logos"><img src="ai lab.png" alt="Shanghai AI Lab"></div>
     <div class="entry-content">
       <h3>Remote Research Assistant &middot; <a href="https://www.shlab.org.cn/" target="_blank">Shanghai AI Laboratory</a></h3>
       <p>Remote RA under Researcher <a href="高远简历.pdf" target="_blank">Yuan Gao</a>. Developing visual-servoing control algorithms for robotic-arm grasping, and designing the mechanical end-effector (gripper) mounted on the arm.</p>
@@ -412,16 +421,13 @@
   </div>
 
   <div class="entry-row">
-    <div class="entry-logos">
-      <img src="河套.png" alt="Loop Area Institute">
-    </div>
+    <div class="entry-logos"><img src="河套.png" alt="Loop Area Institute"></div>
     <div class="entry-content">
       <h3>Quantum &amp; AI Winter School &middot; <a href="https://www.slai.edu.cn" target="_blank">Shenzhen Loop Area Institute</a></h3>
       <p>Studied generative-model-based quantum variational circuit simulation (MLP / LSTM / Transformer architectures) under Prof. Peng Zhang (Tianjin University). Worked on state fidelity optimization, mixed-state simulation, and physics-constrained training.</p>
       <p class="entry-meta">2026.01</p>
     </div>
   </div>
-
 </section>
 
 <!-- ===== EXPERIENCE CN ===== -->
@@ -432,7 +438,7 @@
   <div class="entry-row">
     <div class="entry-logos">
       <img src="清华.png" alt="清华">
-      <img src="零一.png" alt="零一">
+      <img src="零一.png" alt="X-Institute">
     </div>
     <div class="entry-content">
       <h3>P-SRT 研究者 &middot; <a href="https://www.x-institute.edu.cn/about/introduce" target="_blank">深圳 X-Institute</a></h3>
@@ -443,9 +449,7 @@
   </div>
 
   <div class="entry-row">
-    <div class="entry-logos">
-      <img src="ai lab.png" alt="上海AI实验室">
-    </div>
+    <div class="entry-logos"><img src="ai lab.png" alt="上海AI实验室"></div>
     <div class="entry-content">
       <h3>远程研究助理 &middot; <a href="https://www.shlab.org.cn/" target="_blank">上海人工智能实验室</a></h3>
       <p>在<a href="高远简历.pdf" target="_blank">高远</a>研究员指导下担任远程 RA，研究机械臂抓取中的视觉伺服控制算法，并负责臂端夹爪的机械设计。</p>
@@ -454,16 +458,13 @@
   </div>
 
   <div class="entry-row">
-    <div class="entry-logos">
-      <img src="河套.png" alt="河套">
-    </div>
+    <div class="entry-logos"><img src="河套.png" alt="河套研究院"></div>
     <div class="entry-content">
       <h3>量子 &amp; AI 冬令营 &middot; <a href="https://www.slai.edu.cn" target="_blank">深圳河套研究院</a></h3>
       <p>在天津大学张鹏教授指导下，研究基于生成模型（MLP / LSTM / Transformer）的量子变分线路模拟，内容涵盖态保真度优化、混合态模拟与物理约束训练。</p>
       <p class="entry-meta">2026.01</p>
     </div>
   </div>
-
 </section>
 
 <!-- ===== SERVICE EN ===== -->
@@ -542,13 +543,13 @@
   <h2 class="cn">访客地图</h2>
   <hr class="sec-rule">
   <p class="en" style="text-align:center; margin-bottom:12px; color:var(--text-muted); font-size:14px;">
-  Total visitors: <span id="busuanzi_value_site_uv"></span> &middot;
-  Total views: <span id="busuanzi_value_site_pv"></span>
-</p>
-<p class="cn" style="text-align:center; margin-bottom:12px; color:var(--text-muted); font-size:14px;">
-  总访客数: <span id="busuanzi_value_site_uv"></span> &middot;
-  总浏览量: <span id="busuanzi_value_site_pv"></span>
-</p>
+    Total visitors: <span id="busuanzi_value_site_uv"></span> &middot;
+    Total views: <span id="busuanzi_value_site_pv"></span>
+  </p>
+  <p class="cn" style="text-align:center; margin-bottom:12px; color:var(--text-muted); font-size:14px;">
+    总访客数: <span id="busuanzi_value_site_uv"></span> &middot;
+    总浏览量: <span id="busuanzi_value_site_pv"></span>
+  </p>
   <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=HWuicbWj_tdV9OuzU0jbsDOaE5fzPHbiPzjoiX5BFVE&w=200"></script>
 </section>
 
