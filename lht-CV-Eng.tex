@@ -1,0 +1,179 @@
+\documentclass[11pt,letterpaper]{article}
+
+% ---------- packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{left=0.75in, right=0.75in, top=0.6in, bottom=0.6in}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+
+% ---------- colours & hyperlinks ----------
+\definecolor{linkblue}{HTML}{1a0dab}
+\hypersetup{colorlinks=true, linkcolor=linkblue, urlcolor=linkblue, citecolor=linkblue}
+
+% ---------- page style ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\thepage}
+
+% ---------- section formatting ----------
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[\vspace{2pt}\titlerule]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{8pt}{3pt}
+
+% ---------- list settings ----------
+\setlist[itemize]{nosep, left=0pt .. 1.5em, label=\textbullet}
+
+% ---------- custom commands ----------
+\newcommand{\cventry}[4]{%
+  \noindent\textbf{#1}\hfill#2\\
+  \textit{#3}\\
+  #4\par\vspace{4pt}%
+}
+
+\newcommand{\cventryshort}[3]{%
+  \noindent\textbf{#1}\hfill#2\\
+  \textit{#3}\par\vspace{4pt}%
+}
+
+\newcommand{\pubentry}[4]{%
+  \noindent\textbf{#1}\\
+  #2\\
+  \textit{#3}\hfill#4\par\vspace{6pt}%
+}
+
+\newcommand{\awardline}[2]{%
+  \noindent #1 \dotfill\ #2\\[2pt]%
+}
+
+% ---------- no paragraph indent ----------
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ============================================================
+%                         HEADER
+% ============================================================
+\begin{center}
+  {\LARGE\bfseries Haotong Luan}\\\vspace{4pt}
+  \rule{\textwidth}{0.4pt}\\\vspace{4pt}
+  Future Technology School, Shenzhen Technology University\enspace$\cdot$\enspace Shenzhen, China\\
+  lht20060306@outlook.com
+  \enspace|\enspace
+  haotongluan.github.io
+\end{center}
+
+\vspace{-4pt}
+
+% ============================================================
+%                        EDUCATION
+% ============================================================
+\section{Education}
+
+\cventryshort{Shenzhen Technology University (SZTU)}{Sept 2024 -- Present}{B.Eng.\ in Automation, Future Technology School; GPA: 83.7/100}
+\quad Research focus: underactuated grippers; environment-adaptive robotic hands; mechanism design.\par\vspace{4pt}
+
+\cventryshort{Tsinghua University -- Shenzhen X-Institute}{Sept 2025 -- Present}{P-SRT Program, Joint Training (Underactuated Robotics)}
+\quad Advisor: Associate Prof.\ Wenzeng Zhang. Track: X-idea $\rightarrow$ \textbf{P-SRT (current)} $\rightarrow$ E-SRT $\rightarrow$ ORIC $\rightarrow$ SURF.\par\vspace{2pt}
+
+% ============================================================
+%                      PUBLICATIONS
+% ============================================================
+\section{Publications}
+
+{\small Legend: * Corresponding author}\vspace{4pt}
+
+\subsection{Published}
+
+\pubentry{Domain-Semantic Subspace Stacking for Financial Fraud Detection}{\textbf{H.\ Luan}, M.\ Chen, Z.\ Lin, H.\ Ding, Y.\ Sheng*}{ICIC 2026 (International Conference on Intelligent Computing). Accepted, first author.}{2026}
+
+\pubentry{An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability}{\textbf{H.\ Luan}, W.\ Zhang*, T.\ Yang*}{IEEE RAAI 2025}{2025}
+
+\pubentry{GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation}{H.\ Ding, \textbf{H.\ Luan}, T.\ Yang*, W.\ Zhang*}{IEEE ICCMA 2025}{2025}
+
+\pubentry{An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping}{Y.\ Chen, \textbf{H.\ Luan}, H.\ Ding, W.\ Zhang*}{IEEE RAAI 2025}{2025}
+
+\subsection{Under Review}
+
+\pubentry{A Robot Hand with Strong Environmental Adaptability for Grasping, Scooping, and Lifting Based on a Hybrid Parallelogram Mechanism Design}{\textbf{H.\ Luan}, W.\ Zhang*}{IEEE/RSJ IROS 2026 (under review, first author)}{2026}
+
+\pubentry{SP Hand: An Underactuated Gripper with Mode Switching for Adaptive Pinching and Scooping}{\textbf{H.\ Luan}, W.\ Zhang*}{IEEE/RSJ IROS 2026 (under review, first author)}{2026}
+
+\pubentry{PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts}{(co-author), \textbf{H.\ Luan}}{IEEE/RSJ IROS 2026 (under review)}{2026}
+
+\subsection{Patents Pending}
+\begin{itemize}
+  \item \textbf{3 invention patents} filed and under review.
+  \item \textbf{1 utility model patent} filed and under review.
+\end{itemize}
+
+% ============================================================
+%                   RESEARCH & PROJECTS
+% ============================================================
+\section{Research \& Projects}
+
+\cventry{Underactuated Robotic Gripper Research}{2025 -- Present}{Shenzhen X-Institute, Tsinghua University}{Designed underactuated grippers using linear-motion linkages, parallelogram mechanisms, and idle-stroke transmissions. Focus: embedding grasping logic into hardware for reliable single-actuator grasping. Led the DS Hand (first-author, RAAI 2025); collaborated on idle-stroke and GLINT gripper designs.}
+
+\cventry{Environment-Adaptive Robotic Hand Design}{2025 -- Present}{Shenzhen X-Institute}{Developed hands that exploit contact with tables or walls to switch modes automatically (pinching, scooping, lifting). Designed hybrid parallelogram and slot-guided mechanisms for precise linear fingertip motion and posture-preserving grasping. Two first-author papers submitted to IROS 2026.}
+
+\cventry{Visual-Servoing Control for Robotic-Arm Grasping}{2026 -- Present}{Shanghai AI Laboratory (Remote RA)}{Collaborating with Researcher Yuan Gao on visual-servoing control algorithms and end-effector design for robotic-arm grasping. Responsible for the mechanical gripper design mounted on the arm.}
+
+\cventry{Quantum \& AI Winter School}{Jan 2026}{Shenzhen Loop Area Institute}{Studied generative-model-based quantum variational circuit simulation (MLP / LSTM / Transformer) under Prof.\ Peng Zhang (Tianjin University). Worked on state fidelity optimization, mixed-state simulation, and physics-constrained training.}
+
+% ============================================================
+%                       EXPERIENCE
+% ============================================================
+\section{Experience}
+
+\cventryshort{P-SRT Researcher -- Shenzhen X-Institute}{Sept 2025 -- Present}{Advisor: Associate Prof.\ Wenzeng Zhang}
+\quad Independently proposed the dual-slide adaptive gripper concept; conducted mechanism analysis and feasibility study, leading to long-term advising.\par\vspace{4pt}
+
+\cventryshort{Remote Research Assistant -- Shanghai AI Laboratory}{Apr 2026 -- Present}{Supervisor: Researcher Yuan Gao}
+\quad Developing visual-servoing control algorithms for robotic-arm grasping and designing the mechanical end-effector.\par\vspace{4pt}
+
+% ============================================================
+%                    HONORS & AWARDS
+% ============================================================
+\section{Honors \& Awards}
+
+\awardline{\textbf{National-Level Project} (Principal Investigator), 2026 College Student Innovation and Entrepreneurship Training Program --- ``Zero-Lash Smart Grasping''}{2026}
+\awardline{\textbf{Provincial-Level Project} (Member), 2026 College Student Innovation Training Program --- ``Multi-Core Fiber Dynamic Optical Trap for Single-Cell Pathology''}{2026}
+\awardline{Crystal Prize for Scientific \& Technological Innovation (top 10 across SZTU)}{2025}
+\awardline{Dean's Special Award for Rising Talent, Zhenxiong (Future Technology School, SZTU)}{2024--2025}
+\awardline{Outstanding Student Cadre, Shenzhen Technology University}{2024, 2025}
+\awardline{Excellence Prize, 15th ``Challenge Cup'' Student Entrepreneurship Competition (university round)}{2025}
+
+% ============================================================
+%                        SERVICE
+% ============================================================
+\section{Service \& Leadership}
+
+\begin{itemize}
+  \item \textbf{Principal Investigator}, National-Level Project ``Zero-Lash Smart Grasping'', 2026 College Student Innovation and Entrepreneurship Training Program (2026.05 -- present).
+  \item \textbf{Project Member}, Provincial-Level Project on multi-core fiber dynamic optical trap for single-cell pathology, 2026 College Student Innovation Training Program (2026.05 -- present).
+  \item Conference reviewer for \textbf{IEEE/RSJ IROS 2026}.
+  \item Head of Organization Department, Future Technology School, SZTU (2024.12 -- present).
+  \item Class Monitor \& Youth League Secretary (2024.09 -- 2025.10).
+  \item Deputy Team Leader, 15th ``Challenge Cup'' Student Entrepreneurship Competition (2025).
+\end{itemize}
+
+% ============================================================
+%                         SKILLS
+% ============================================================
+\section{Skills}
+
+\begin{tabularx}{\textwidth}{@{} l X @{}}
+\textbf{Mechanism Design:} & Parallel-jaw coupled grippers, linear linkages, parallelogram linkages, underactuated \& tendon-driven hands; SolidWorks (modeling / assembly / kinematic simulation); Bambu Lab 3D printing; rapid prototyping and grasping experiment design.\\[4pt]
+\textbf{Programming:}      & Python; basic experience with deep learning frameworks (point cloud / quantum circuit simulation).\\[4pt]
+\textbf{Academic Writing:}  & IEEE journal \& conference formatting; experienced with the full submission pipeline.\\[4pt]
+\textbf{Languages:}         & Chinese (native); English (CET-4: 580; IELTS scheduled Dec 2026).\\
+\end{tabularx}
+
+\end{document}
