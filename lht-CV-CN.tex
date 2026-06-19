@@ -1,0 +1,156 @@
+\documentclass[11pt,a4paper,fontset=windows]{ctexart}
+
+\usepackage[left=1.8cm,right=1.8cm,top=1.55cm,bottom=1.55cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+
+\definecolor{linkblue}{HTML}{1a0dab}
+\hypersetup{colorlinks=true, linkcolor=linkblue, urlcolor=linkblue, citecolor=linkblue}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\thepage}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\vspace{2pt}\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{7pt}{3pt}
+\setlist[itemize]{nosep, left=0pt .. 1.5em, label=\textbullet}
+\setlength{\parindent}{0pt}
+
+\newcommand{\cventry}[4]{%
+  \noindent\textbf{#1}\hfill#2\\
+  \textit{#3}\\
+  #4\par\vspace{4pt}%
+}
+
+\newcommand{\cventryshort}[3]{%
+  \noindent\textbf{#1}\hfill#2\\
+  \textit{#3}\par\vspace{4pt}%
+}
+
+\newcommand{\pubentry}[4]{%
+  \noindent\textbf{#1}\\
+  #2\\
+  \textit{#3}\hfill#4\par\vspace{5pt}%
+}
+
+\newcommand{\awardline}[2]{%
+  \noindent #1 \dotfill\ #2\\[2pt]%
+}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries 栾皓童}\\\vspace{4pt}
+  \rule{\textwidth}{0.4pt}\\\vspace{4pt}
+  深圳技术大学未来技术学院\enspace$\cdot$\enspace 深圳\\
+  lht20060306@outlook.com
+  \enspace|\enspace
+  haotongluan.github.io
+\end{center}
+
+\vspace{-4pt}
+
+\section{教育背景}
+
+\cventryshort{深圳技术大学}{2024.09 -- 至今}{未来技术学院，自动化专业本科；GPA: 83.7/100}
+\quad 研究方向：欠驱动夹爪、环境自适应机械手、机器人机构设计。\par\vspace{4pt}
+
+\cventryshort{清华大学 - 深圳 X-Institute}{2025.09 -- 至今}{P-SRT 项目，联合培养方向：欠驱动机器人}
+\quad 导师：张文增副教授。培养路径：X-idea $\rightarrow$ \textbf{P-SRT（当前）} $\rightarrow$ E-SRT $\rightarrow$ ORIC $\rightarrow$ SURF。\par\vspace{2pt}
+
+\section{论文发表}
+
+{\small 注：* 为通讯作者}\vspace{4pt}
+
+\subsection{已发表 / 录用}
+
+\pubentry{DPS Hand: A Dual-Parallelogram and Slot-Guided Gripper for Adaptive Grasping and Environmental Scooping}{\textbf{Haotong Luan}, Haokai Ding, Tao Yang*, Wenzeng Zhang*}{IEEE CASE 2026，RAS 三大会，沈阳，2026.08.17--21；第一作者}{2026}
+
+\pubentry{PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts}{Benwu Wang, Zihang Wang*, Wenkai Zhu, \textbf{Haotong Luan}, Dong Kong, Binghao Wang, Yiming Zhou, Kailin Lyu, Teng Yan, Haoyu Wang, Yaohua Liu, Qiang Zhang}{IEEE/RSJ IROS 2026，机器人顶会，Pittsburgh, PA, USA，2026.09.27--10.01；第四作者}{2026}
+
+\pubentry{CSD: Conformal Selective Diagnosis for Reliable Bearing Fault Identification Under Domain Shift}{Xi Yu, Anran Lu, Keyi Chen, \textbf{Haotong Luan}*, Yuan Gao*}{IEEE SMC 2026，CCF C，Bellevue, WA, USA，2026.10.04--07；通讯作者}{2026}
+
+\pubentry{Domain-Semantic Subspace Stacking for Financial Fraud Detection}{\textbf{Haotong Luan}, Minmin Chen, Zhenhui Lin, Haokai Ding, Yiwei Sheng*}{ICIC 2026，CCF C，Toronto, Canada，2026.07.22--26；第一作者}{2026}
+
+\pubentry{An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability}{\textbf{Haotong Luan}, Wenzeng Zhang*, Tao Yang*}{RAAI 2025，Singapore，2025.12.18--20；第一作者}{2025}
+
+\pubentry{An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping}{Yizhe Chen, \textbf{Haotong Luan}, Haokai Ding, Wenzeng Zhang*}{RAAI 2025，Singapore，2025.12.18--20；第二作者}{2025}
+
+\pubentry{GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation}{Haokai Ding, \textbf{Haotong Luan}, Tao Yang*, Wenzeng Zhang*}{ICCMA 2025，Paris, France，2025.11.24--26；第二作者}{2025}
+
+\subsection{在投 / 在审期刊}
+
+\pubentry{Manuscript submitted to \textit{Advanced Science}}{\textbf{Haotong Luan}（第一作者）}{在投。综合材料与交叉学科领域顶刊；中科院一区 Top；JCR Q1}{2026}
+
+\pubentry{Manuscript submitted to \textit{Advanced Intelligent Systems}}{\textbf{Haotong Luan}（第一作者）}{在投。智能系统与机器人交叉领域顶刊；JCR Q1}{2026}
+
+\pubentry{Manuscript submitted to \textit{IEEE Robotics and Automation Letters} (RA-L)}{\textbf{Haotong Luan}（第一作者）}{在投。机器人与自动化领域顶刊；JCR Q1}{2026}
+
+\pubentry{Manuscript under review at \textit{Scientific Reports}}{\textbf{Haotong Luan}（第一作者）}{在审。JCR Q1}{2026}
+
+\subsection{在申专利}
+\begin{itemize}
+  \item \textbf{3 项发明专利}已申请，审查中。
+  \item \textbf{1 项实用新型专利}已申请，审查中。
+\end{itemize}
+
+\section{科研与项目}
+
+\cventry{欠驱动机器人夹爪研究}{2025 -- 至今}{深圳 X-Institute，清华大学}{围绕直线运动连杆、平行四边形机构与空行程传动开展欠驱动夹爪设计，将抓取逻辑嵌入机械结构，实现单驱动可靠抓取。主导 DS Hand 一作设计（RAAI 2025），并合作参与空行程夹爪与 GLINT 抓取提升机构研究。}
+
+\cventry{机械臂抓取视觉伺服控制}{2026 -- 至今}{上海人工智能实验室，实习 RA}{在高远研究员指导下，参与机械臂抓取中的视觉伺服控制算法研究，并负责臂端夹爪的机械设计。}
+
+\cventry{Auto-Research 方向研究}{2026 -- 至今}{清华大学智能产业研究院，实习}{参与自动化科研流程、智能体辅助研究、科研任务分解与实验生成等方向研究。}
+
+\cventry{量子 \& AI 冬令营}{2026.01}{深圳河套研究院}{在天津大学张鹏教授指导下，研究基于 MLP / LSTM / Transformer 的量子变分线路模拟，内容涵盖态保真度优化、混合态模拟与物理约束训练。}
+
+\section{经历}
+
+\cventryshort{P-SRT 研究者 - 深圳 X-Institute}{2025.09 -- 至今}{导师：张文增副教授}
+\quad 独立提出双滑块自适应夹爪构想，完成机构分析与可行性研究，获得长期科研指导。\par\vspace{4pt}
+
+\cventryshort{研究助理 - 上海人工智能实验室}{2026.04 -- 至今}{导师：高远研究员}
+\quad 参与机械臂抓取视觉伺服与末端执行器设计研究。\par\vspace{4pt}
+
+\section{荣誉与服务}
+
+\awardline{清华大学 AIR 夏令营录取}{2026}
+\awardline{CASE 2026 IEEE RAS Travel Support（Travel Grant）}{2026}
+\awardline{\textbf{国家级大学生创新创业训练计划}（项目负责人）- ``零隙智抓''}{2026}
+\awardline{\textbf{省级大学生创新训练计划}（项目成员）- ``面向单细胞病理观测的多芯光纤动态势阱''}{2026}
+\awardline{入选浙江大学 / 哈尔滨工业大学 SDG 全球暑期学校（免学费）}{2026}
+\awardline{量子 \& AI 冬令营入选者（70+ 参与者中仅 9 名本科生之一且最年轻）}{2026}
+\awardline{震雄新才院长特别奖学金}{2024--2025}
+\awardline{深圳技术大学科技创新``晶体奖学金''}{2025}
+\awardline{深圳技术大学优秀学生干部}{2024, 2025}
+\awardline{``挑战杯''中国大学生创业计划竞赛校赛优胜奖}{2025}
+\awardline{``挑战杯''中国大学生课外学术作品竞赛校赛优胜奖}{2025}
+\awardline{第十五届全国运动会暨全国第十二届残特奥会优秀赛会志愿者}{2025}
+
+\section{服务与领导力}
+
+\begin{itemize}
+  \item \textbf{审稿人}，IEEE/RSJ IROS 2026。
+  \item \textbf{项目负责人}，国家级大创项目``零隙智抓''（2026.05 -- 至今）。
+  \item \textbf{项目成员}，省级大创项目``多芯光纤动态势阱构建与单细胞病理观测''（2026.05 -- 至今）。
+  \item 深圳技术大学未来技术学院组织部部长（2024.12 -- 至今）。
+  \item 班长兼团支书（2024.09 -- 2025.10）。
+\end{itemize}
+
+\section{技能}
+
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\textbf{机构设计：} & 平夹耦合夹爪、直线连杆、平行四边形连杆、欠驱动与腱驱动机械手；SolidWorks 建模 / 装配 / 运动仿真；3D 打印与样机迭代。\\
+\textbf{编程与 AI：} & Python；基础深度学习框架使用经验，应用于点云与量子线路模拟。\\
+\textbf{学术写作：} & 熟悉 IEEE 期刊与会议格式、投稿流程与 AI 辅助文献综述。\\
+\textbf{语言：} & 中文（母语）；英语（CET-4: 580；IELTS 预计 2026.12 考试）。\\
+\end{tabularx}
+
+\end{document}
