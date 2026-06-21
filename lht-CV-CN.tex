@@ -7,6 +7,7 @@
 \usepackage{xcolor}
 \usepackage{tabularx}
 \usepackage{fancyhdr}
+\usepackage{xurl}
 
 \definecolor{linkblue}{HTML}{1a0dab}
 \hypersetup{colorlinks=true, linkcolor=linkblue, urlcolor=linkblue, citecolor=linkblue}
@@ -37,7 +38,7 @@
 \newcommand{\pubentry}[4]{%
   \noindent\textbf{#1}\\
   #2\\
-  \textit{#3}\hfill#4\par\vspace{5pt}%
+  \noindent\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xr@{}}\textit{#3} & #4\end{tabularx}\par\vspace{5pt}%
 }
 
 \newcommand{\awardline}[2]{%
@@ -65,35 +66,33 @@
 \cventryshort{清华大学 - 深圳 X-Institute}{2025.09 -- 至今}{P-SRT 项目，联合培养方向：欠驱动机器人}
 \quad 导师：张文增副教授。培养路径：X-idea $\rightarrow$ \textbf{P-SRT（当前）} $\rightarrow$ E-SRT $\rightarrow$ ORIC $\rightarrow$ SURF。\par\vspace{2pt}
 
-\section{论文发表}
+\section{论文发表与录用}
 
 {\small 注：* 为通讯作者}\vspace{4pt}
 
-\subsection{已发表 / 录用}
+\subsection{同行评审论文与已录用论文}
 
-\pubentry{DPS Hand: A Dual-Parallelogram and Slot-Guided Gripper for Adaptive Grasping and Environmental Scooping}{\textbf{Haotong Luan}, Haokai Ding, Tao Yang*, Wenzeng Zhang*}{IEEE CASE 2026，RAS 三大会，沈阳，2026.08.17--21；第一作者}{2026}
+\pubentry{DPS Hand: A Dual-Parallelogram and Slot-Guided Gripper for Adaptive Grasping and Environmental Scooping}{\textbf{Haotong Luan}, Haokai Ding, Tao Yang*, Wenzeng Zhang*}{已录用于 IEEE CASE 2026，RAS 三大会，中国沈阳，2026.08.17--21；第一作者}{2026}
 
-\pubentry{PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts}{Benwu Wang, Zihang Wang*, Wenkai Zhu, \textbf{Haotong Luan}, Dong Kong, Binghao Wang, Yiming Zhou, Kailin Lyu, Teng Yan, Haoyu Wang, Yaohua Liu, Qiang Zhang}{IEEE/RSJ IROS 2026，机器人顶会，Pittsburgh, PA, USA，2026.09.27--10.01；第四作者}{2026}
+\pubentry{PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts}{Benwu Wang, Zihang Wang*, Wenkai Zhu, \textbf{Haotong Luan}, Dong Kong, Binghao Wang, Yiming Zhou, Kailin Lyu, Teng Yan, Haoyu Wang, Yaohua Liu, Qiang Zhang}{已录用于 IEEE/RSJ IROS 2026，机器人顶会，美国匹兹堡，2026.09.27--10.01；第四作者}{2026}
 
-\pubentry{CSD: Conformal Selective Diagnosis for Reliable Bearing Fault Identification Under Domain Shift}{Xi Yu, Anran Lu, Keyi Chen, \textbf{Haotong Luan}*, Yuan Gao*}{IEEE SMC 2026，CCF C，Bellevue, WA, USA，2026.10.04--07；通讯作者}{2026}
+\pubentry{CSD: Conformal Selective Diagnosis for Reliable Bearing Fault Identification Under Domain Shift}{Xi Yu, Anran Lu, Keyi Chen, \textbf{Haotong Luan}*, Yuan Gao*}{已录用于 IEEE SMC 2026，CCF C，美国贝尔维尤，2026.10.04--07；通讯作者}{2026}
 
-\pubentry{Domain-Semantic Subspace Stacking for Financial Fraud Detection}{\textbf{Haotong Luan}, Minmin Chen, Zhenhui Lin, Haokai Ding, Yiwei Sheng*}{ICIC 2026，CCF C，Toronto, Canada，2026.07.22--26；第一作者}{2026}
+\pubentry{Domain-Semantic Subspace Stacking for Financial Fraud Detection}{\textbf{Haotong Luan}, Minmin Chen, Zhenhui Lin, Haokai Ding, Yiwei Sheng*}{已录用于 ICIC 2026，CCF C，加拿大多伦多，2026.07.22--26；第一作者}{2026}
 
-\pubentry{An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability}{\textbf{Haotong Luan}, Wenzeng Zhang*, Tao Yang*}{RAAI 2025，Singapore，2025.12.18--20；第一作者}{2025}
+\pubentry{An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability}{\textbf{Haotong Luan}, Wenzeng Zhang*, Tao Yang*}{RAAI 2025，新加坡，2025.12.18--20；第一作者；DOI: \href{https://doi.org/10.1109/RAAI67517.2025.11423404}{10.1109/RAAI67517.2025.11423404}}{2025}
 
-\pubentry{An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping}{Yizhe Chen, \textbf{Haotong Luan}, Haokai Ding, Wenzeng Zhang*}{RAAI 2025，Singapore，2025.12.18--20；第二作者}{2025}
+\pubentry{An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping}{Yizhe Chen, \textbf{Haotong Luan}, Haokai Ding, Wenzeng Zhang*}{RAAI 2025，新加坡，2025.12.18--20；第二作者；DOI: \href{https://doi.org/10.1109/RAAI67517.2025.11423397}{10.1109/RAAI67517.2025.11423397}}{2025}
 
-\pubentry{GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation}{Haokai Ding, \textbf{Haotong Luan}, Tao Yang*, Wenzeng Zhang*}{ICCMA 2025，Paris, France，2025.11.24--26；第二作者}{2025}
+\pubentry{GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation}{Haokai Ding, \textbf{Haotong Luan}, Tao Yang*, Wenzeng Zhang*}{ICCMA 2025，法国巴黎，2025.11.24--26；第二作者；DOI: \href{https://doi.org/10.1109/ICCMA67641.2025.11369602}{10.1109/ICCMA67641.2025.11369602}}{2025}
 
-\subsection{在投 / 在审期刊}
+\subsection{在投 / 在审期刊论文}
 
-\pubentry{Manuscript submitted to \textit{Advanced Science}}{\textbf{Haotong Luan}（第一作者）}{在投。综合材料与交叉学科领域顶刊；中科院一区 Top；JCR Q1}{2026}
+\pubentry{Manuscript submitted to \textit{Advanced Science}}{\textbf{Haotong Luan}（第一作者）}{在投。综合材料与交叉学科领域顶刊；中科院一区 Top；JCR Q1。}{2026}
 
-\pubentry{Manuscript submitted to \textit{Advanced Intelligent Systems}}{\textbf{Haotong Luan}（第一作者）}{在投。智能系统与机器人交叉领域顶刊；JCR Q1}{2026}
+\pubentry{Manuscript submitted to \textit{IEEE Robotics and Automation Letters} (RA-L)}{\textbf{Haotong Luan}（第一作者）}{在投。机器人与自动化领域顶刊；JCR Q1。}{2026}
 
-\pubentry{Manuscript submitted to \textit{IEEE Robotics and Automation Letters} (RA-L)}{\textbf{Haotong Luan}（第一作者）}{在投。机器人与自动化领域顶刊；JCR Q1}{2026}
-
-\pubentry{Manuscript under review at \textit{Scientific Reports}}{\textbf{Haotong Luan}（第一作者）}{在审。JCR Q1}{2026}
+\pubentry{Manuscript under review at \textit{Scientific Reports}}{\textbf{Haotong Luan}（第一作者）}{在审。JCR Q1。}{2026}
 
 \subsection{在申专利}
 \begin{itemize}

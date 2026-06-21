@@ -11,6 +11,7 @@
 \usepackage{xcolor}
 \usepackage{tabularx}
 \usepackage{fancyhdr}
+\usepackage{xurl}
 
 % ---------- colours & hyperlinks ----------
 \definecolor{linkblue}{HTML}{1a0dab}
@@ -46,7 +47,7 @@
 \newcommand{\pubentry}[4]{%
   \noindent\textbf{#1}\\
   #2\\
-  \textit{#3}\hfill#4\par\vspace{6pt}%
+  \noindent\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}Xr@{}}\textit{#3} & #4\end{tabularx}\par\vspace{6pt}%
 }
 
 \newcommand{\awardline}[2]{%
@@ -86,35 +87,33 @@
 % ============================================================
 %                      PUBLICATIONS
 % ============================================================
-\section{Publications}
+\section{Publications and Accepted Papers}
 
 {\small Legend: * Corresponding author}\vspace{4pt}
 
-\subsection{Published}
+\subsection{Peer-Reviewed Publications and Accepted Papers}
 
-\pubentry{DPS Hand: A Dual-Parallelogram and Slot-Guided Gripper for Adaptive Grasping and Environmental Scooping}{\textbf{Haotong Luan}, Haokai Ding, Tao Yang*, Wenzeng Zhang*}{Proceedings of the 2026 IEEE 22nd International Conference on Automation Science and Engineering (CASE 2026), Shenyang, China, August 17--21, 2026.}{2026}
+\pubentry{DPS Hand: A Dual-Parallelogram and Slot-Guided Gripper for Adaptive Grasping and Environmental Scooping}{\textbf{Haotong Luan}, Haokai Ding, Tao Yang*, Wenzeng Zhang*}{Accepted to IEEE CASE 2026, RAS major conference, Shenyang, China, August 17--21, 2026.}{2026}
 
-\pubentry{PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts}{Benwu Wang, Zihang Wang*, Wenkai Zhu, \textbf{Haotong Luan}, Dong Kong, Binghao Wang, Yiming Zhou, Kailin Lyu, Teng Yan, Haoyu Wang, Yaohua Liu, Qiang Zhang}{Proceedings of the 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2026), Pittsburgh, PA, USA, September 27--October 1, 2026.}{2026}
+\pubentry{PlaceRecover: Layout-Invariant Point Cloud Recovery for Robust 3D Perception under LiDAR Placement Shifts}{Benwu Wang, Zihang Wang*, Wenkai Zhu, \textbf{Haotong Luan}, Dong Kong, Binghao Wang, Yiming Zhou, Kailin Lyu, Teng Yan, Haoyu Wang, Yaohua Liu, Qiang Zhang}{Accepted to IEEE/RSJ IROS 2026, top robotics conference, Pittsburgh, PA, USA, September 27--October 1, 2026.}{2026}
 
-\pubentry{CSD: Conformal Selective Diagnosis for Reliable Bearing Fault Identification Under Domain Shift}{Xi Yu, Anran Lu, Keyi Chen, \textbf{Haotong Luan}*, Yuan Gao*}{Proceedings of the 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC 2026), Bellevue, WA, USA, October 4--7, 2026. (CCF C; corresponding author)}{2026}
+\pubentry{CSD: Conformal Selective Diagnosis for Reliable Bearing Fault Identification Under Domain Shift}{Xi Yu, Anran Lu, Keyi Chen, \textbf{Haotong Luan}*, Yuan Gao*}{Accepted to IEEE SMC 2026, CCF C, Bellevue, WA, USA, October 4--7, 2026. (Corresponding author)}{2026}
 
-\pubentry{Domain-Semantic Subspace Stacking for Financial Fraud Detection}{\textbf{Haotong Luan}, Minmin Chen, Zhenhui Lin, Haokai Ding, Yiwei Sheng*}{Proceedings of the 22nd International Conference on Intelligent Computing (ICIC 2026), Toronto, Canada, July 22--26, 2026. (CCF C)}{2026}
+\pubentry{Domain-Semantic Subspace Stacking for Financial Fraud Detection}{\textbf{Haotong Luan}, Minmin Chen, Zhenhui Lin, Haokai Ding, Yiwei Sheng*}{Accepted to ICIC 2026, CCF C, Toronto, Canada, July 22--26, 2026.}{2026}
 
-\pubentry{An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability}{\textbf{Haotong Luan}, Wenzeng Zhang*, Tao Yang*}{Proceedings of the 2025 5th International Conference on Robotics, Automation, and Artificial Intelligence (RAAI 2025), Singapore, December 18--20, 2025.}{2025}
+\pubentry{An Underactuated Dual-Slide Adaptive Robotic Hand with Strong Environmental Adaptability}{\textbf{Haotong Luan}, Wenzeng Zhang*, Tao Yang*}{Proc. RAAI 2025, Singapore, Dec. 18--20, 2025. DOI: \href{https://doi.org/10.1109/RAAI67517.2025.11423404}{10.1109/RAAI67517.2025.11423404}}{2025}
 
-\pubentry{An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping}{Yizhe Chen, \textbf{Haotong Luan}, Haokai Ding, Wenzeng Zhang*}{Proceedings of the 2025 5th International Conference on Robotics, Automation, and Artificial Intelligence (RAAI 2025), Singapore, December 18--20, 2025.}{2025}
+\pubentry{An Idle-Stroke Underactuated Gripper with Independent Double-Parallelogram Linkages for Pinching and Adaptive Grasping}{Yizhe Chen, \textbf{Haotong Luan}, Haokai Ding, Wenzeng Zhang*}{Proc. RAAI 2025, Singapore, Dec. 18--20, 2025. DOI: \href{https://doi.org/10.1109/RAAI67517.2025.11423397}{10.1109/RAAI67517.2025.11423397}}{2025}
 
-\pubentry{GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation}{Haokai Ding, \textbf{Haotong Luan}, Tao Yang*, Wenzeng Zhang*}{Proceedings of the 2025 13th International Conference on Control, Mechatronics and Automation (ICCMA 2025), Paris, France, November 24--26, 2025.}{2025}
+\pubentry{GLINT: An Idle-Stroke Grasp-and-Lift Hand for In-Hand Manipulation}{Haokai Ding, \textbf{Haotong Luan}, Tao Yang*, Wenzeng Zhang*}{Proc. ICCMA 2025, Paris, France, Nov. 24--26, 2025. DOI: \href{https://doi.org/10.1109/ICCMA67641.2025.11369602}{10.1109/ICCMA67641.2025.11369602}}{2025}
 
-\subsection{Submitted / Under Review Journals}
+\subsection{Journal Manuscripts Submitted / Under Review}
 
-\pubentry{Manuscript submitted to \textit{Advanced Science}}{\textbf{Haotong Luan} (first author)}{Submitted. (Interdisciplinary and materials top journal; CAS Zone 1 Top; JCR Q1)}{2026}
+\pubentry{Manuscript submitted to \textit{Advanced Science}}{\textbf{Haotong Luan} (first author)}{Submitted. Interdisciplinary and materials top journal; CAS Zone 1 Top; JCR Q1.}{2026}
 
-\pubentry{Manuscript submitted to \textit{Advanced Intelligent Systems}}{\textbf{Haotong Luan} (first author)}{Submitted. (Intelligent systems and robotics interdisciplinary top journal; JCR Q1)}{2026}
+\pubentry{Manuscript submitted to \textit{IEEE Robotics and Automation Letters} (RA-L)}{\textbf{Haotong Luan} (first author)}{Submitted. Robotics and automation top journal; JCR Q1.}{2026}
 
-\pubentry{Manuscript submitted to \textit{IEEE Robotics and Automation Letters} (RA-L)}{\textbf{Haotong Luan} (first author)}{Submitted. (Robotics and automation top journal; JCR Q1)}{2026}
-
-\pubentry{Manuscript under review at \textit{Scientific Reports}}{\textbf{Haotong Luan} (first author)}{Under review. (JCR Q1)}{2026}
+\pubentry{Manuscript under review at \textit{Scientific Reports}}{\textbf{Haotong Luan} (first author)}{Under review. JCR Q1.}{2026}
 
 \subsection{Patents Pending}
 \begin{itemize}
