@@ -165,11 +165,49 @@
 
     .pub-venue { color:var(--link); font-style:italic; }
 
-    .news-list { list-style:none; padding:0; }
+    .news-heading { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:4px; }
+
+    .news-heading h2 { margin-bottom:0; }
+
+    .news-toggle { font-size:14px; min-height:32px; flex-shrink:0; }
+
+    .news-toggle:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
+
+    .news-list {
+
+      list-style:none; padding:0 12px 0 0; max-height:20rem; overflow-y:auto;
+
+      overflow-wrap:anywhere; scrollbar-gutter:stable;
+
+      scrollbar-width:thin; scrollbar-color:var(--text-muted) transparent;
+
+    }
+
+    .news-list:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
+
+    .news-list.is-expanded { max-height:none; overflow:visible; scrollbar-gutter:auto; }
 
     .news-list li { margin-bottom:6px; }
 
-    .news-date { font-weight:bold; margin-right:6px; }
+    .news-list li:last-child { margin-bottom:0; }
+
+    .news-date { font-weight:bold; margin-right:6px; white-space:nowrap; }
+
+    @media (max-width:640px) {
+
+      .news-list { max-height:18rem; }
+
+    }
+
+    @media print {
+
+      .news-toggle { display:none; }
+
+      .news-list { max-height:none; overflow:visible; padding-right:0; scrollbar-gutter:auto; }
+
+      .news-list li { break-inside:avoid; }
+
+    }
 
     .tags { color:var(--text-muted); font-size:14px; margin-top:2px; }
 
@@ -517,13 +555,18 @@
 
 <!-- ===== NEWS EN ===== -->
 
-<section id="news" class="en">
+<div id="news">
 
-  <h2>News</h2>
+<section class="en">
+
+  <div class="news-heading">
+    <h2 id="news-heading-en">News</h2>
+    <button class="tbtn news-toggle" type="button" aria-expanded="false" aria-controls="news-list-en" data-expand="View all" data-collapse="Collapse" onclick="toggleNews()" hidden>View all</button>
+  </div>
 
   <hr class="sec-rule">
 
-  <ul class="news-list">
+  <ul id="news-list-en" class="news-list" role="list" tabindex="0" aria-labelledby="news-heading-en">
 
     <!-- ★ 国家级大创立项 -->
 
@@ -561,11 +604,14 @@
 
 <section class="cn">
 
-  <h2>动态</h2>
+  <div class="news-heading">
+    <h2 id="news-heading-cn">动态</h2>
+    <button class="tbtn news-toggle" type="button" aria-expanded="false" aria-controls="news-list-cn" data-expand="展开全部" data-collapse="收起" onclick="toggleNews()" hidden>展开全部</button>
+  </div>
 
   <hr class="sec-rule">
 
-  <ul class="news-list">
+  <ul id="news-list-cn" class="news-list" role="list" tabindex="0" aria-labelledby="news-heading-cn">
 
     <!-- ★ 国家级大创立项 -->
 
@@ -598,6 +644,8 @@
   </ul>
 
 </section>
+
+</div>
 
 <!-- ===== RESEARCH EN ===== -->
 
@@ -1115,6 +1163,24 @@
 <!-- ===== JS ===== -->
 
 <script>
+
+function toggleNews(){
+
+  var expanded=document.querySelector('.news-toggle').getAttribute('aria-expanded')!=='true';
+
+  document.querySelectorAll('.news-list').forEach(function(list){
+    list.classList.toggle('is-expanded',expanded);
+    list.scrollTop=0;
+  });
+
+  document.querySelectorAll('.news-toggle').forEach(function(button){
+    button.setAttribute('aria-expanded',String(expanded));
+    button.textContent=expanded?button.dataset.collapse:button.dataset.expand;
+  });
+
+}
+
+document.querySelectorAll('.news-toggle').forEach(function(button){button.hidden=false;});
 
 function toggleTheme(){
 
