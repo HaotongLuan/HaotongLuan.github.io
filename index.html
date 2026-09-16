@@ -77,7 +77,9 @@
 
     .topbar-left a { color:var(--link); font-weight:bold; }
 
-    .topbar-right { display:flex; gap:16px; align-items:center; }
+    .topbar-right { display:flex; flex-wrap:wrap; gap:6px 16px; align-items:center; }
+
+    .topbar-right > * { white-space:nowrap; }
 
     .topbar-right a { color:var(--link); }
 
@@ -150,6 +152,8 @@
     .focus-line { color:var(--text-muted); margin-top:8px; font-size:14px; }
 
     section { margin-bottom:36px; }
+
+    #publications, #news, #education, #research-experience { scroll-margin-top:24px; }
 
     section h2 { font-size:20px; font-weight:bold; margin-bottom:4px; }
 
@@ -269,11 +273,17 @@
 
     .entry-logos img.hit-logo {
 
-      width:92px; height:92px;
+      width:92px; height:auto;
 
     }
 
-    .entry-content { flex:1; }
+    .entry-logos img.institution-logo {
+
+      width:100px; height:auto;
+
+    }
+
+    .entry-content { flex:1; min-width:0; }
 
     .entry-content.summer-school-content {
 
@@ -318,6 +328,12 @@
   <div class="topbar-right">
 
     <a href="#publications" class="en">Publications/</a><a href="#publications" class="cn">论文/</a>
+
+    <a href="#news" class="en">News/</a><a href="#news" class="cn">动态/</a>
+
+    <a href="#education" class="en">Education/</a><a href="#education" class="cn">教育经历/</a>
+
+    <a href="#research-experience" class="en">Research Experience/</a><a href="#research-experience" class="cn">科研经历/</a>
 
     <a href="https://scholar.google.com/citations?user=695sZWgAAAAJ&hl=en&authuser=1" target="_blank" class="en">Scholar/</a>
 
@@ -677,73 +693,7 @@
 
 </div>
 
-<!-- ===== RESEARCH EN ===== -->
-
-<section class="en">
-
-  <h2>Research</h2>
-
-  <hr class="sec-rule">
-
-  <h3>01 &middot; Underactuated Grippers</h3>
-
-  <p>Linear-motion linkages, parallelogram mechanisms, and idle-stroke transmissions that embed grasping logic directly into the hardware, enabling reliable grasping with a single actuator.</p>
-
-  <p class="tags">dual-parallelogram &middot; idle-stroke &middot; single-actuator</p>
-
-  <h3>02 &middot; Environment-Adaptive Hands</h3>
-
-  <p>Hands that exploit contact with tables or walls to switch modes automatically, from pinching to scooping to lifting, robust to pose error and collision during manipulator operation.</p>
-
-  <p class="tags">card scooping &middot; mode switching &middot; contact-triggered</p>
-
-  <h3>03 &middot; Mechanism Design</h3>
-
-  <p>Peaucellier and semi-Peaucellier linkages, slot-guided mechanisms, and hybrid parallelogram designs aimed at precise linear fingertip motion and posture-preserving grasping.</p>
-
-  <p class="tags">Peaucellier &middot; slot-guided &middot; linear linkage</p>
-
-  <h3>04 &middot; Embodied Intelligence (Future)</h3>
-
-  <p>Long-term interest in the intersection of mechanism design and embodied intelligence, coupling hardware-embedded logic with learning-based control for resource-constrained robotics.</p>
-
-  <p class="tags">embodied AI &middot; hardware-software co-design</p>
-
-</section>
-
-<!-- ===== RESEARCH CN ===== -->
-
-<section class="cn">
-
-  <h2>研究方向</h2>
-
-  <hr class="sec-rule">
-
-  <h3>01 &middot; 欠驱动夹爪</h3>
-
-  <p>通过直线运动连杆、平行四边形机构、空行程传动等，将抓取逻辑直接嵌入硬件，实现单电机驱动下的可靠抓取。</p>
-
-  <p class="tags">双平行四边形 &middot; 空行程 &middot; 单驱动</p>
-
-  <h3>02 &middot; 环境自适应机械手</h3>
-
-  <p>利用与桌面或墙面的接触自动切换模式，从捏取到扒取再到提升，对操作臂的位姿误差和碰撞具有很强鲁棒性。</p>
-
-  <p class="tags">扒卡 &middot; 模式切换 &middot; 接触触发</p>
-
-  <h3>03 &middot; 机构设计</h3>
-
-  <p>Peaucellier 与半 Peaucellier 连杆、槽导式机构、混合平行四边形设计，用于指尖精确直线运动与保持姿态的抓取。</p>
-
-  <p class="tags">Peaucellier &middot; 槽导 &middot; 直线连杆</p>
-
-  <h3>04 &middot; 具身智能（未来方向）</h3>
-
-  <p>长期关注机构设计与具身智能的交叉，将硬件嵌入式逻辑与基于学习的控制相结合，面向资源受限的机器人系统。</p>
-
-  <p class="tags">具身 AI &middot; 软硬协同</p>
-
-</section>
+<div id="education">
 
 <!-- ===== EDUCATION EN ===== -->
 
@@ -768,7 +718,7 @@
   <div class="entry-row">
     <div class="entry-logos summer-school-logos">
       <img src="浙江大学.png" alt="Zhejiang University">
-      <img class="hit-logo" src="哈工大.png?v=20260611-2134" alt="Harbin Institute of Technology">
+      <img class="hit-logo" src="哈工大.png?v=20260916" alt="Harbin Institute of Technology">
     </div>
     <div class="entry-content summer-school-content">
       <h3>Zhejiang University &amp; Harbin Institute of Technology &middot; SDG Global Summer School 2026</h3>
@@ -783,7 +733,7 @@
 
       <img src="清华.png" alt="Tsinghua">
 
-      <img src="零一.png" alt="X-Institute">
+      <img class="institution-logo" src="零一.png?v=20260916" alt="X-Institute">
 
     </div>
 
@@ -826,7 +776,7 @@
   <div class="entry-row">
     <div class="entry-logos summer-school-logos">
       <img src="浙江大学.png" alt="浙江大学">
-      <img class="hit-logo" src="哈工大.png?v=20260611-2134" alt="哈尔滨工业大学">
+      <img class="hit-logo" src="哈工大.png?v=20260916" alt="哈尔滨工业大学">
     </div>
     <div class="entry-content summer-school-content">
       <h3>浙江大学＆哈尔滨工业大学 &middot; SDG 全球暑期学校 2026</h3>
@@ -842,7 +792,7 @@
 
       <img src="清华.png" alt="清华">
 
-      <img src="零一.png" alt="X-Institute">
+      <img class="institution-logo" src="零一.png?v=20260916" alt="X-Institute">
 
     </div>
 
@@ -862,11 +812,15 @@
 
 </section>
 
-<!-- ===== EXPERIENCE EN ===== -->
+</div>
+
+<div id="research-experience">
+
+<!-- ===== RESEARCH EXPERIENCE EN ===== -->
 
 <section class="en">
 
-  <h2>Experience</h2>
+  <h2>Research Experience</h2>
 
   <hr class="sec-rule">
 
@@ -876,7 +830,7 @@
 
       <img src="清华.png" alt="Tsinghua">
 
-      <img src="零一.png" alt="X-Institute">
+      <img class="institution-logo" src="零一.png?v=20260916" alt="X-Institute">
 
     </div>
 
@@ -896,7 +850,7 @@
 
   <div class="entry-row">
 
-    <div class="entry-logos"><img src="ai lab.png" alt="Shanghai AI Lab"></div>
+    <div class="entry-logos"><img class="institution-logo" src="ai lab.png?v=20260916" alt="Shanghai AI Lab"></div>
 
     <div class="entry-content">
 
@@ -912,7 +866,7 @@
 
   <div class="entry-row">
 
-    <div class="entry-logos"><img src="河套.png" alt="Loop Area Institute"></div>
+    <div class="entry-logos"><img class="institution-logo" src="河套.png?v=20260916" alt="Loop Area Institute"></div>
 
     <div class="entry-content">
 
@@ -928,11 +882,11 @@
 
 </section>
 
-<!-- ===== EXPERIENCE CN ===== -->
+<!-- ===== RESEARCH EXPERIENCE CN ===== -->
 
 <section class="cn">
 
-  <h2>科研与工作经历</h2>
+  <h2>科研经历</h2>
 
   <hr class="sec-rule">
 
@@ -942,7 +896,7 @@
 
       <img src="清华.png" alt="清华">
 
-      <img src="零一.png" alt="X-Institute">
+      <img class="institution-logo" src="零一.png?v=20260916" alt="X-Institute">
 
     </div>
 
@@ -962,7 +916,7 @@
 
   <div class="entry-row">
 
-    <div class="entry-logos"><img src="ai lab.png" alt="上海AI实验室"></div>
+    <div class="entry-logos"><img class="institution-logo" src="ai lab.png?v=20260916" alt="上海AI实验室"></div>
 
     <div class="entry-content">
 
@@ -978,7 +932,7 @@
 
   <div class="entry-row">
 
-    <div class="entry-logos"><img src="河套.png" alt="河套学院"></div>
+    <div class="entry-logos"><img class="institution-logo" src="河套.png?v=20260916" alt="河套学院"></div>
 
     <div class="entry-content">
 
@@ -993,6 +947,8 @@
   </div>
 
 </section>
+
+</div>
 
 <!-- ===== SERVICE EN ===== -->
 
