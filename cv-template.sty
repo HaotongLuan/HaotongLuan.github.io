@@ -34,7 +34,7 @@
 \fancyfoot[C]{{\regularfont\fontsize{7}{9}\selectfont\color{lightgray}\cvname}}
 \fancyfoot[R]{{\regularfont\fontsize{7}{9}\selectfont\color{lightgray}\thepage}}
 \newcommand{\cvname}{HAOTONG LUAN}
-\newcommand{\cvupdated}{SEPTEMBER 15, 2026}
+\newcommand{\cvupdated}{SEPTEMBER 30, 2026}
 \newcommand{\cvnamesep}{\ }
 \newcommand{\cvsmallcaps}[1]{\textsc{#1}}
 \newcommand{\cvicon}[1]{{\iconfont\symbol{#1}}}
@@ -67,6 +67,13 @@
     \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash\leavevmode}X@{\hspace{10pt}}>{\raggedleft\arraybackslash\leavevmode}p{0.22\linewidth}@{}}
       {\fontsize{8.5}{10}\selectfont #3} & {\fontsize{8.5}{10}\selectfont\color{accent}\textit{#4}}
     \end{tabularx}\par
+    {\fontsize{8}{9.5}\selectfont\color{muted}#5}\par
+  \end{minipage}\par\vspace{4.5pt}}
+\newcommand{\cvpubwide}[5]{%
+  \par\noindent\begin{minipage}{\linewidth}\raggedright
+    {\fontsize{10.9}{13}\selectfont\bfseries\color{muted}[#1] #2}\par\vspace{1.5pt}
+    {\fontsize{8.5}{10}\selectfont #3}\par
+    {\fontsize{8.5}{10}\selectfont\color{accent}\textit{#4}}\par
     {\fontsize{8}{9.5}\selectfont\color{muted}#5}\par
   \end{minipage}\par\vspace{4.5pt}}
 \newcommand{\self}{\textcolor{accent}{\textbf{Haotong Luan}}}
